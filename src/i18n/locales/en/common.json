@@ -1,0 +1,295 @@
+{
+  "src": {
+    "pages": {
+      "signup": {
+        "title": "Sign Up",
+        "account": "Have an account?",
+        "buttonSignIn": "Sign In"
+      },
+      "signin": {
+        "title": "Welcome Back",
+        "account": "Don't have an account?",
+        "buttonSignUp": "Sign Up",
+        "buttonSignIn": "Sign In"
+      },
+      "about": {
+        "texts": {
+          "appeal": "This is a call to all those who do not feel ready, able, or worthy to do something for God.",
+          "isaiah": "[Isaiah 6:8] 'Then I heard the voice of the Lord saying, 'Whom shall I send, and who will go for us?' Then I said, 'Here am I. Send me!'\"",
+          "houseAV": "I called it HouseAV, where 'AV' stands for 'availability'. This is because as Christians if the first step is to be obedient to God, the second almost as a consequence is to be available.. available to do anything for Him.",
+          "obedience": "God does not seek capable people, but obedient and available ones.",
+          "firstSteps": "God does not seek perfect first steps, but seeks willing hearts.",
+          "priorities": "God seeks people with the right priorities, where consecration is on their podium.",
+          "investment": "God seeks your spiritual investment in your private room before you can begin.",
+          "seeking": "God is seeking you, are you available?",
+          "contact": "Hi, I am Luca Imbalzano, for any questions, advice, or collaboration write to me:",
+          "email": "lucaimbalzano@gmail.com"
+        }
+      },
+      "home": {
+        "title": "Welcome",
+        "subtitle": "Welcome to your new registration experience",
+        "recentOffersLabel": "Latest additions",
+        "showMoreLabel": "Show more houses"
+      },
+      "notfound": {
+        "message": "Oh oh, it looks like this page doesn't exist!",
+        "btnBackHome": "Go back to Home"
+      },
+      "adminupdatehouse": {
+        "houseTitlePlaceHolder": "Title..",
+        "houseAddressPlaceHolder": "Address..",
+        "houseAllergyPlaceHolder": "Allergies..",
+        "houseBathroomsPlaceHolder": "Bathrooms..",
+        "houseBedroomsPlaceHolder": "Bedrooms..",
+        "houseDescriptionPlaceHolder": "Description..",
+        "houseDescriptionLabel": "Description",
+        "houseVerified": "Verified",
+        "houseToVerify": "To Verify",
+        "houseUpdateBtn": "Save",
+        "dataNotFound": "Oh oh, something went wrong.. data not found"
+      },
+      "adminupdateprofile": {
+        "userUrlImagePlaceHolder": "Profile picture URL..",
+        "userNumberPlaceHolder": "Number..",
+        "userVerified": "Verified",
+        "userToVerify": "To Verify",
+        "userUpdateBtn": "Save",
+        "dataNotFound": "Oh oh, something went wrong.. data not found"
+      },
+      "dashboard": {
+        "reviewUsersBtn": "Review Users",
+        "reviewHousesBtn": "Review Houses",
+        "queueListing": {
+          "modalCloseBtn": "Close",
+          "adminEditHouseTitleModal": "Admin House Review",
+          "adminEditHouseTitle": "Review House Listing Requests",
+          "adminHouseNotFound": "No publication requests found..",
+          "adminHouseTableEmail": "email",
+          "adminHouseTableTitle": "title",
+          "adminHouseTableAddress": "address",
+          "adminHouseTableCreatedAt": "Creation date"
+        },
+        "queueUsers": {
+          "modalCloseBtn": "Close",
+          "adminEditUserTitleModal": "Admin User Review",
+          "adminEditUserTitle": "Review Registration Requests",
+          "adminEditUserCreatedAt": "Creation date",
+          "adminEditUserChurchTh": "church",
+          "adminEditUserRLetterTh": "Referral letter",
+          "adminReferenceLetterLabelPastorName": "Pastor/Leader Name",
+          "adminReferenceLetterLabelPastorNumber": "Pastor/Leader Number",
+          "adminReferenceLetterLabelTimeInChurch": "Time in Church",
+          "adminReferenceLetterLabelChurchNumber": "Church Number",
+          "adminReferenceLetterLabelReferenceDetail": "Reference Details",
+          "adminReferenceLetterLabelAcceptedDecline": "Accepted/Declined",
+          "adminReferenceLetterLabelCreatedAt": "Created At",
+          "adminReferenceLetterLabelDateOfBaptism": "Date of Baptism",
+          "adminReferenceLetterLabelGuardianName": "Guardian Name",
+          "adminReferenceLetterLabelCustodianChurch": "Church Custodian",
+          "adminReferenceLetterLabelCustodianChurchNumber": "Guardian Number"
+        }
+      },
+      "profile": {
+        "title": "Profile",
+        "imageErrorToBigger": "Image upload error (image must be less than 2 MB)",
+        "imageLoaded": "Image uploaded successfully",
+        "btnUpdate": "Save",
+        "btnCreateHouse": "Create House",
+        "btnShowListing": "Show My Houses",
+        "btnSignOutTitle": "Sign Out",
+        "btnSignOutMessage": "Are you sure you want to sign out?",
+        "btnDelete": "Delete Account",
+        "btnDeleteModal": "Delete",
+        "btnDeleteTitle": "Warning",
+        "btnDeleteMessage": "Are you sure you want to delete your account?",
+        "btnDeleteCancel": "Cancel",
+        "successProfileUpdate": "Profile updated successfully",
+        "errorProfileUpdate": "Error updating profile"
+      },
+      "search": {
+        "searchTerm": "Search Listing Title",
+        "searchPlaceholder": "Search..",
+        "amenitiesLabel": "Amenities",
+        "searchBtn": "Search",
+        "sortForLabel": "Sort by",
+        "sortForOptionFirst": "Most recent",
+        "sortForOptionSecond": "Least recent",
+        "sortForOptionThird": "Most bedrooms",
+        "sortForOptionFourth": "Least bedrooms",
+        "searchNoResults": "No results found",
+        "searchResults": "Search results",
+        "searchResultsLoad": "Loading..",
+        "searchResultsLoadMore": "Load more results",
+        "searchNotAuth": "Oh oh, you are not authorized to view this page, please log in to continue or wait for your account to be verified."
+      },
+      "listingInReview": {
+        "title": "House Under Review",
+        "messagePart1": "This house is under review,",
+        "messagePart2": "We are taking some time to verify that the information entered meets biblical guidelines, please wait.",
+        "messagePart3": "We care about your safety"
+      },
+      "profileInReview": {
+        "title": "Profile Under Review",
+        "messagePart1": "Your profile is under review,",
+        "messagePart2": "We are taking some time to verify that you meet the requirements of this platform, please wait.",
+        "messagePart3": "We care about your safety"
+      },
+      "listingPage": {
+        "somethingWentWrong": "Something went wrong..",
+        "loading": "Loading..",
+        "linkCopied": "Link copied!",
+        "linkCopy": "Copy link",
+        "isPresent": "Is present",
+        "isNotPresent": "Is not present",
+        "furnished": "Furnished",
+        "notFurnished": "Not furnished",
+        "contactOwner": "Contact Owner",
+        "showContactDetails": "Show contact details",
+        "available": "Available",
+        "notAvailable": "Not available"
+      },
+      "listing": {
+        "errorImageSize": "Image upload error (image must be less than 2 MB)",
+        "errorImageOverload": "Image upload error (maximum 6 images)",
+        "errorImageGeneral": "Image upload error",
+        "errorImageLoaded": "Image uploaded successfully",
+        "errorImageAtLeast": "Upload at least one image",
+        "title": "Create a House",
+        "titleUpdate": "Update House",
+        "attentionDisclaimer": "Before your listing is published, it will be reviewed by our team.",
+        "btnCreate": "Create House",
+        "labelAvailabilityDates": "Availability dates",
+        "inputPlaceholderTitle": "Title",
+        "inputPlaceholderAddress": "Address..",
+        "inputPlaceholderDescription": "Description..",
+        "inputPlaceholderAllergy": "Allergies..",
+        "labelAllergy": "Allergies",
+        "inputPlaceholderAnimals": "Animals..",
+        "labelAnimals": "Animals",
+        "inputPlaceholderTransportations": "Transportations..",
+        "inputPlaceholderBedrooms": "Bedrooms",
+        "inputPlaceholderBathrooms": "Bathrooms",
+        "inputFromAvailable": "Available from",
+        "inputToAvailable": "Available until",
+        "inputPlaceHolderParking": "Parking",
+        "inputPlaceHolderFurnished": "Furnished",
+        "inputPlaceHolderAvailability": "Is available",
+        "labelPlaceHolderAvailability": "Availability",
+        "inputPlacesHolderSleepPlace": "Sleeping places",
+        "inputPlaceHolderSleepPlace": "Sleeping place",
+        "imageLabelAttention": "The first image will be the cover (max 6)",
+        "imageLabel": "Upload images",
+        "imageLabelLoading": "Loading..",
+        "imageLabelBtnUpload": "Upload",
+        "imageLabelBtnChoose": "Choose photo",
+        "imageLabelBtnDel": "Delete",
+        "imageNoFileChoosen": "No file chosen"
+      },
+      "forgotPassword": {
+        "title": "Reset Password",
+        "generalError": "Oh oh, could not process your request. Something went wrong..",
+        "loadingYourRequest": "Processing your request..",
+        "SessionExpired": "Session expired",
+        "SessionTimeRemaining": "Time remaining",
+        "PasswordNotMatch": "Passwords do not match",
+        "GeneralText1": "If needed, request a new link to reset your password.",
+        "GeneralText2": "Reset your password in one step."
+      },
+      "forgotPasswordRequest": {
+        "title": "Password Reset Request",
+        "insightText1": "Please enter your email address associated with your account to receive the password reset link via email."
+      }
+    },
+    "components": {
+      "yourListing": {
+        "title": "Your Listings",
+        "noListing": "No listings found for this user.",
+        "btnDeleteListing": "Delete",
+        "btnEditListing": "Edit"
+      },
+      "header": {
+        "home": "Home",
+        "about": "About",
+        "contact": "Contact"
+      },
+      "listingItem": {
+        "bedroomsLabel": "Bedrooms",
+        "bedroomLabel": "Bedroom",
+        "bathroomLabel": "Bathroom"
+      },
+      "stepper": {
+        "step1": {
+          "placeholderNumber": "Number",
+          "placeholderConfirmPassword": "Confirm Password"
+        },
+        "step2": {
+          "title": "Reference Letter",
+          "NamePastorplaceholder": "Pastor/Leader Name..",
+          "NamePastorToolTip": "Enter the name of your leader/leader or your church's pastor.",
+          "SurnamePastorplaceholder": "Pastor/Leader Surname..",
+          "SurnamePastorToolTip": "Enter the surname of your leader/leader or your church's pastor.",
+          "NumberPastorplaceholder": "Pastor/Leader Number..",
+          "NumberPastorToolTip": "Enter the number of your leader/leader or your church's pastor.",
+          "TimeInChurchLabel": "How long have you been attending your church?",
+          "TimeInChurchToolTip": "Select how long you have been attending your church,\n it will be useful for you and for other users of the system.",
+          "isBaptizedQuestion": "Are you baptized in water?",
+          "isBaptizedLabel": "Baptism date:",
+          "isBaptizedToolTip": "Select the approximate date of when you were baptized in water,\n it will be useful for you and for other users of the system.",
+          "guardianQuestion": "Is there a guardian?",
+          "gurdianNamePlaceHolder": "Guardian Name..",
+          "guardianNameToolTip": "Enter your guardian's name.",
+          "guardianNumberPlaceHolder": "Guardian Number..",
+          "guardianNumberToolTip": "Enter your guardian's number.",
+          "churchNumberPlaceHolder": "Church Number..",
+          "churchNumberToolTip": "Enter your church's number.",
+          "referenceDetails": "Add details (optional)",
+          "referenceDetailsPlaceHolder": "Add details.."
+        },
+        "step3": {
+          "termsAndConditionsStep": {
+            "title": "Terms and Conditions",
+            "section1": "Please read the following terms and conditions of service carefully. Use of our services implies acceptance of these terms.",
+            "section2": "Use of Personal Data: Users' personal data (photos, text format) will be treated with the utmost confidentiality and used only with the consent of the persons concerned. Data processing complies with the General Data Protection Regulation (GDPR) (",
+            "gdprRegulation": "Regulation (EU) 2016/679",
+            "section3": "Users have the right to be informed and access their personal data, as well as to rectify or delete them, as stipulated in ",
+            "articles13to22": "articles 13-22 of the GDPR",
+            "section4": "User Identification: We are committed to ensuring that each person using our services can be securely identified. This is in line with ",
+            "article5": "article 5 of the GDPR",
+            "section5": ", which requires personal data to be processed lawfully, fairly, and transparently. By using our services, users declare that they are at least 18 years old. Failure to comply with this declaration may result in service interruption.",
+            "section6": "Limitation of Liability: By using the platform, the user acknowledges and agrees that the platform acts as a simple portal to connect people who wish to offer their property for hospitality and people seeking a temporary place to stay. The platform assumes no responsibility for interactions between users or for any damages, losses, or disputes that may arise in connection with such interactions. Users are responsible for all their actions and the consequences arising from the use of the platform.",
+            "section7": "Purpose of Data Processing: Personal data will be used for the following purposes:",
+            "bullet1": "Visible publication of one's property with the requested data.",
+            "bullet2": "Opportunity to be contacted via email, WhatsApp, or social media to offer hospitality.",
+            "section8": "Data Retention Period: Personal data will be retained from 31/08/2024 until 01/05/2025. At the end of this period, the data will be deleted unless further consent for data processing is requested. Users will have the option to accept or decline the renewal of consent.",
+            "section9": "Data Transfer: In the event of a need to transfer data to another database, such transfer will only occur with users' consent, in accordance with ",
+            "article6": "article 6 of the GDPR",
+            "section10": ", which requires explicit consent for the processing of personal data. By clicking 'Accept', users provide such consent. Data transfer outside the European Economic Area (EEA) will only be carried out with adequate safeguards, as specified in ",
+            "articles44to50": "articles 44-50 of the GDPR",
+            "section11": "Personalized Communications: With users' consent, we may send personalized emails or contact them through other means using their personal data, as permitted by ",
+            "articles6": "articles 6",
+            "and": " and ",
+            "article7": "7 of the GDPR",
+            "section12": ". Users have the right to withdraw their consent at any time, as stipulated in ",
+            "article73": "article 7(3) of the GDPR",
+            "cookiePolicy": "Cookie & Privacy Policy",
+            "accept": "I Accept"
+          }
+        }
+      },
+
+      "selectOptions": {
+        "churches": {
+          "option1": "Select your church"
+        },
+        "pastors": {
+          "option1": "Select your pastor"
+        }
+      }
+    }
+  },
+  "homeTitle": {
+    "title": "Be <1>hospitable</1> to one another <2 />without complaint.",
+    "description": "You can share your house or find a lovely person who is sharing.<2 />1 Peter 4:9"
+  }
+}

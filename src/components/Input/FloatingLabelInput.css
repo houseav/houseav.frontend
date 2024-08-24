@@ -1,0 +1,36 @@
+/* FloatingLabelInput.css */
+
+.floating-label-input {
+  position: relative;
+  margin-top: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 12px 12px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #aaa;
+  font-size: 16px;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+.input:focus + .label,
+.input.has-content + .label {
+  top: -10px;
+  left: 12px;
+  font-size: 12px;
+  color: #555;
+}
+
+.input:focus {
+  border-color: #555;
+}

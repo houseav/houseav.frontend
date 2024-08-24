@@ -1,0 +1,70 @@
+.stepper-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.step-item {
+  @apply relative flex flex-col justify-center items-center w-36;
+}
+
+.step-item:not(:first-child)::before {
+  content: "";
+  background-color: #e2e8f0; /* bg-slate-200 */
+  position: absolute;
+  height: 3px;
+  left: -110%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100% + 2rem); /* Adjust this based on your layout */
+}
+
+.step {
+  @apply w-10 h-10 flex items-center justify-center z-10 relative bg-green-300 rounded-full font-semibold text-white;
+}
+
+.active .step {
+  @apply bg-slate-300;
+}
+
+.complete .step {
+  @apply bg-green-300;
+}
+
+.complete p {
+  @apply text-green-400/80;
+}
+
+.complete:not(:first-child)::before,
+.active:not(:first-child)::before {
+  background-color: bg-green-300;
+}
+
+@media (max-width: 800px) {
+  .step-item:not(:first-child)::before {
+    left: -70%;
+    width: calc(50% + 1rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .step-item:not(:first-child)::before {
+    left: -40%;
+    width: calc(30% + 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .step-item:not(:first-child)::before {
+    left: -60%;
+    width: calc(100% + 1rem);
+  }
+}
+
+.input-error {
+  border-color: red !important;
+}
+
+.label-error {
+  color: red !important;
+}

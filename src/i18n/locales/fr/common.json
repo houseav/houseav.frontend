@@ -1,0 +1,295 @@
+{
+  "src": {
+    "pages": {
+      "signup": {
+        "title": "S'inscrire",
+        "account": "Vous avez un compte ?",
+        "buttonSignIn": "Se connecter"
+      },
+      "signin": {
+        "title": "Bon retour",
+        "account": "Vous n'avez pas de compte ?",
+        "buttonSignUp": "S'inscrire",
+        "buttonSignIn": "Se connecter"
+      },
+      "about": {
+        "texts": {
+          "appeal": "Ceci est un appel à tous ceux qui ne se sentent pas prêts, capables ou dignes de faire quelque chose pour Dieu.",
+          "isaiah": "[Ésaïe 6:8] 'Puis j'entendis la voix du Seigneur disant : 'Qui enverrai-je, et qui ira pour nous ?' Alors je dis : 'Me voici, envoie-moi !\"",
+          "houseAV": "Je l'ai appelée HouseAV, où 'AV' signifie 'disponibilité'. En tant que chrétiens, si le premier pas est d'être obéissant à Dieu, le deuxième, presque en conséquence, est d'être disponible.. disponible pour faire n'importe quoi pour Lui.",
+          "obedience": "Dieu ne cherche pas des personnes capables, mais des personnes obéissantes et disponibles.",
+          "firstSteps": "Dieu ne cherche pas des premiers pas parfaits, mais des cœurs prêts.",
+          "priorities": "Dieu cherche des personnes avec les bonnes priorités, où la consécration est sur leur podium.",
+          "investment": "Dieu cherche votre investissement spirituel dans votre chambre avant que vous ne puissiez commencer.",
+          "seeking": "Dieu vous cherche, êtes-vous disponible ?",
+          "contact": "Bonjour, je suis Luca Imbalzano, pour toute question, conseil ou collaboration, écrivez-moi :",
+          "email": "lucaimbalzano@gmail.com"
+        }
+      },
+      "home": {
+        "title": "Bienvenue",
+        "subtitle": "Bienvenue dans votre nouvelle expérience d'inscription",
+        "recentOffersLabel": "Dernières ajouts",
+        "showMoreLabel": "Voir plus de maisons"
+      },
+      "notfound": {
+        "message": "Oh oh, il semble que cette page n'existe pas !",
+        "btnBackHome": "Retour à l'accueil"
+      },
+      "adminupdatehouse": {
+        "houseTitlePlaceHolder": "Titre..",
+        "houseAddressPlaceHolder": "Adresse..",
+        "houseAllergyPlaceHolder": "Allergies..",
+        "houseBathroomsPlaceHolder": "Salles de bain..",
+        "houseBedroomsPlaceHolder": "Chambres..",
+        "houseDescriptionPlaceHolder": "Description..",
+        "houseDescriptionLabel": "Description",
+        "houseVerified": "Vérifié",
+        "houseToVerify": "À vérifier",
+        "houseUpdateBtn": "Sauvegarder",
+        "dataNotFound": "Oh oh, quelque chose s'est mal passé.. données non trouvées"
+      },
+      "adminupdateprofile": {
+        "userUrlImagePlaceHolder": "URL de la photo de profil..",
+        "userNumberPlaceHolder": "Numéro..",
+        "userVerified": "Vérifié",
+        "userToVerify": "À vérifier",
+        "userUpdateBtn": "Sauvegarder",
+        "dataNotFound": "Oh oh, quelque chose s'est mal passé.. données non trouvées"
+      },
+      "dashboard": {
+        "reviewUsersBtn": "Vérifier les utilisateurs",
+        "reviewHousesBtn": "Vérifier les maisons",
+        "queueListing": {
+          "modalCloseBtn": "Fermer",
+          "adminEditHouseTitleModal": "Vérification des maisons par l'admin",
+          "adminEditHouseTitle": "Vérifier les demandes de publication de maisons",
+          "adminHouseNotFound": "Aucune demande de publication trouvée..",
+          "adminHouseTableEmail": "email",
+          "adminHouseTableTitle": "titre",
+          "adminHouseTableAddress": "adresse",
+          "adminHouseTableCreatedAt": "Date de création"
+        },
+        "queueUsers": {
+          "modalCloseBtn": "Fermer",
+          "adminEditUserTitleModal": "Vérification des utilisateurs par l'admin",
+          "adminEditUserTitle": "Vérifier les demandes d'inscription",
+          "adminEditUserCreatedAt": "Date de création",
+          "adminEditUserChurchTh": "église",
+          "adminEditUserRLetterTh": "Lettre de référence",
+          "adminReferenceLetterLabelPastorName": "Nom du Pasteur/Leader",
+          "adminReferenceLetterLabelPastorNumber": "Numéro du Pasteur/Leader",
+          "adminReferenceLetterLabelTimeInChurch": "Temps dans l'Église",
+          "adminReferenceLetterLabelChurchNumber": "Numéro de l'Église",
+          "adminReferenceLetterLabelReferenceDetail": "Détails de Référence",
+          "adminReferenceLetterLabelAcceptedDecline": "Accepté/Rejeté",
+          "adminReferenceLetterLabelCreatedAt": "Créé le",
+          "adminReferenceLetterLabelDateOfBaptism": "Date du Baptême",
+          "adminReferenceLetterLabelGuardianName": "Nom du Gardien",
+          "adminReferenceLetterLabelCustodianChurch": "Gardien de l'Église",
+          "adminReferenceLetterLabelCustodianChurchNumber": "Numéro Gardien"
+        }
+      },
+      "profile": {
+        "title": "Profil",
+        "imageErrorToBigger": "Erreur de téléchargement de l'image (l'image doit être inférieure à 2 Mo)",
+        "imageLoaded": "Image téléchargée avec succès",
+        "btnUpdate": "Sauvegarder",
+        "btnCreateHouse": "Créer une maison",
+        "btnShowListing": "Afficher mes maisons",
+        "btnSignOutTitle": "Se déconnecter",
+        "btnSignOutMessage": "Êtes-vous sûr de vouloir vous déconnecter ?",
+        "btnDelete": "Supprimer le compte",
+        "btnDeleteModal": "Supprimer",
+        "btnDeleteTitle": "Attention",
+        "btnDeleteMessage": "Êtes-vous sûr de vouloir supprimer votre compte ?",
+        "btnDeleteCancel": "Annuler",
+        "successProfileUpdate": "Profil mis à jour avec succès",
+        "errorProfileUpdate": "Erreur lors de la mise à jour du profil"
+      },
+      "search": {
+        "searchTerm": "Rechercher le titre de l'annonce",
+        "searchPlaceholder": "Rechercher..",
+        "amenitiesLabel": "Commodités",
+        "searchBtn": "Rechercher",
+        "sortForLabel": "Trier par",
+        "sortForOptionFirst": "Les plus récents",
+        "sortForOptionSecond": "Les moins récents",
+        "sortForOptionThird": "Plus de chambres",
+        "sortForOptionFourth": "Moins de chambres",
+        "searchNoResults": "Aucun résultat trouvé",
+        "searchResults": "Résultats de la recherche",
+        "searchResultsLoad": "Chargement..",
+        "searchResultsLoadMore": "Charger plus de résultats",
+        "searchNotAuth": "Oh oh, vous n'êtes pas autorisé à voir cette page, veuillez vous connecter pour continuer ou attendre que votre compte soit vérifié."
+      },
+      "listingInReview": {
+        "title": "Maison en cours de révision",
+        "messagePart1": "Cette maison est en cours de révision,",
+        "messagePart2": "Nous prenons du temps pour vérifier que les informations saisies respectent les directives bibliques, veuillez patienter.",
+        "messagePart3": "Nous prenons soin de votre sécurité"
+      },
+      "profileInReview": {
+        "title": "Profil en cours de révision",
+        "messagePart1": "Votre profil est en cours de révision,",
+        "messagePart2": "Nous prenons du temps pour vérifier que vous répondez aux exigences de cette plateforme, veuillez patienter.",
+        "messagePart3": "Nous prenons soin de votre sécurité"
+      },
+      "listingPage": {
+        "somethingWentWrong": "Quelque chose s'est mal passé..",
+        "loading": "Chargement..",
+        "linkCopied": "Lien copié !",
+        "linkCopy": "Copier le lien",
+        "isPresent": "Est présent",
+        "isNotPresent": "N'est pas présent",
+        "furnished": "Meublé",
+        "notFurnished": "Non meublé",
+        "contactOwner": "Contacter le propriétaire",
+        "showContactDetails": "Afficher les détails du contact",
+        "available": "Disponible",
+        "notAvailable": "Non disponible"
+      },
+      "listing": {
+        "errorImageSize": "Erreur de téléchargement de l'image (l'image doit être inférieure à 2 Mo)",
+        "errorImageOverload": "Erreur de téléchargement de l'image (maximum 6 images)",
+        "errorImageGeneral": "Erreur de téléchargement de l'image",
+        "errorImageLoaded": "Image téléchargée avec succès",
+        "errorImageAtLeast": "Téléchargez au moins une image",
+        "title": "Créer une maison",
+        "titleUpdate": "Mettre à jour la maison",
+        "attentionDisclaimer": "Avant que votre annonce soit publiée, elle sera examinée par notre équipe.",
+        "btnCreate": "Créer une maison",
+        "labelAvailabilityDates": "Dates de disponibilité",
+        "inputPlaceholderTitle": "Titre",
+        "inputPlaceholderAddress": "Adresse..",
+        "inputPlaceholderDescription": "Description..",
+        "inputPlaceholderAllergy": "Allergies..",
+        "labelAllergy": "Allergies",
+        "inputPlaceholderAnimals": "Animaux..",
+        "labelAnimals": "Animaux",
+        "inputPlaceholderTransportations": "Transports..",
+        "inputPlaceholderBedrooms": "Chambres",
+        "inputPlaceholderBathrooms": "Salles de bain",
+        "inputFromAvailable": "Disponible à partir de",
+        "inputToAvailable": "Disponible jusqu'à",
+        "inputPlaceHolderParking": "Parking",
+        "inputPlaceHolderFurnished": "Meublé",
+        "inputPlaceHolderAvailability": "Est disponible",
+        "labelPlaceHolderAvailability": "Disponibilité",
+        "inputPlacesHolderSleepPlace": "Places de couchage",
+        "inputPlaceHolderSleepPlace": "Place de couchage",
+        "imageLabelAttention": "La première image sera la couverture (max 6)",
+        "imageLabel": "Télécharger des images",
+        "imageLabelLoading": "Chargement..",
+        "imageLabelBtnUpload": "Télécharger",
+        "imageLabelBtnChoose": "Choisir une photo",
+        "imageLabelBtnDel": "Supprimer",
+        "imageNoFileChoosen": "Aucun fichier sélectionné"
+      },
+      "forgotPassword": {
+        "title": "Réinitialiser le mot de passe",
+        "generalError": "Oh oh, impossible de traiter votre demande. Quelque chose s'est mal passé..",
+        "loadingYourRequest": "Traitement de votre demande..",
+        "SessionExpired": "Session expirée",
+        "SessionTimeRemaining": "Temps restant",
+        "PasswordNotMatch": "Les mots de passe ne correspondent pas",
+        "GeneralText1": "Si nécessaire, demandez un nouveau lien pour réinitialiser votre mot de passe.",
+        "GeneralText2": "Réinitialisez votre mot de passe en une étape."
+      },
+      "forgotPasswordRequest": {
+        "title": "Demande de Réinitialisation de Mot de Passe",
+        "insightText1": "Veuillez entrer votre adresse e-mail associée à votre compte pour recevoir le lien de réinitialisation du mot de passe par e-mail."
+      }
+    },
+    "components": {
+      "yourListing": {
+        "title": "Vos annonces",
+        "noListing": "Aucune annonce trouvée pour cet utilisateur.",
+        "btnDeleteListing": "Supprimer",
+        "btnEditListing": "Modifier"
+      },
+      "header": {
+        "home": "Accueil",
+        "about": "À propos",
+        "contact": "Contact"
+      },
+      "listingItem": {
+        "bedroomsLabel": "Chambres",
+        "bedroomLabel": "Chambre",
+        "bathroomLabel": "Salle de bain"
+      },
+      "stepper": {
+        "step1": {
+          "placeholderNumber": "Numéro",
+          "placeholderConfirmPassword": "Confirmer le mot de passe"
+        },
+        "step2": {
+          "title": "Lettre de référence",
+          "NamePastorplaceholder": "Nom du pasteur/leader..",
+          "NamePastorToolTip": "Entrez le nom de votre leader/responsable ou du pasteur de votre église.",
+          "SurnamePastorplaceholder": "Nom de famille du pasteur/leader..",
+          "SurnamePastorToolTip": "Entrez le nom de famille de votre leader/responsable ou du pasteur de votre église.",
+          "NumberPastorplaceholder": "Numéro du pasteur/leader..",
+          "NumberPastorToolTip": "Entrez le numéro de votre leader/responsable ou du pasteur de votre église.",
+          "TimeInChurchLabel": "Depuis combien de temps fréquentez-vous votre église ?",
+          "TimeInChurchToolTip": "Sélectionnez depuis combien de temps vous fréquentez votre église, cela sera utile pour vous et pour les autres utilisateurs du système.",
+          "isBaptizedQuestion": "Êtes-vous baptisé dans l'eau ?",
+          "isBaptizedLabel": "Date de baptême :",
+          "isBaptizedToolTip": "Sélectionnez la date approximative de votre baptême dans l'eau, cela sera utile pour vous et pour les autres utilisateurs du système.",
+          "guardianQuestion": "Y a-t-il un gardien ?",
+          "gurdianNamePlaceHolder": "Nom du gardien..",
+          "guardianNameToolTip": "Entrez le nom de votre gardien.",
+          "guardianNumberPlaceHolder": "Numéro du gardien..",
+          "guardianNumberToolTip": "Entrez le numéro de votre gardien.",
+          "churchNumberPlaceHolder": "Numéro de l'église..",
+          "churchNumberToolTip": "Entrez le numéro de votre église.",
+          "referenceDetails": "Ajouter des détails (facultatif)",
+          "referenceDetailsPlaceHolder": "Ajouter des détails.."
+        },
+        "step3": {
+          "termsAndConditionsStep": {
+            "title": "Termes et conditions",
+            "section1": "Veuillez lire attentivement les termes et conditions de service suivants. L'utilisation de nos services implique l'acceptation de ces termes.",
+            "section2": "Utilisation des données personnelles : Les données personnelles des utilisateurs (photos, format texte) seront traitées avec la plus grande confidentialité et utilisées uniquement avec le consentement des personnes concernées. Le traitement des données est conforme au Règlement général sur la protection des données (RGPD) (",
+            "gdprRegulation": "Règlement (UE) 2016/679",
+            "section3": "Les utilisateurs ont le droit d'être informés et d'accéder à leurs données personnelles, ainsi que de les rectifier ou de les supprimer, comme stipulé dans les ",
+            "articles13to22": "articles 13-22 du RGPD",
+            "section4": "Identification des utilisateurs : Nous nous engageons à garantir que chaque personne utilisant nos services puisse être identifiée de manière sécurisée. Cela est conforme à l'",
+            "article5": "article 5 du RGPD",
+            "section5": ", qui exige que les données personnelles soient traitées de manière licite, correcte et transparente. En utilisant nos services, les utilisateurs déclarent avoir au moins 18 ans. Le non-respect de cette déclaration peut entraîner l'interruption du service.",
+            "section6": "Limitation de responsabilité : En utilisant la plateforme, l'utilisateur reconnaît et accepte que la plateforme agit comme un simple portail pour mettre en contact des personnes souhaitant offrir leur bien pour l'hospitalité et des personnes recherchant un lieu de séjour temporaire. La plateforme n'assume aucune responsabilité pour les interactions entre les utilisateurs ni pour d'éventuels dommages, pertes ou litiges pouvant survenir en relation avec ces interactions. Les utilisateurs sont responsables de toutes leurs actions et des conséquences découlant de l'utilisation de la plateforme.",
+            "section7": "Finalité du traitement des données : Les données personnelles seront utilisées aux fins suivantes :",
+            "bullet1": "Publication visible de son bien avec les données demandées.",
+            "bullet2": "Possibilité d'être contacté par email, WhatsApp ou les réseaux sociaux pour offrir l'hospitalité.",
+            "section8": "Période de conservation des données : Les données personnelles seront conservées du 31/08/2024 au 01/05/2025. À l'expiration de cette période, les données seront supprimées, sauf si un consentement supplémentaire pour le traitement des données est demandé. Les utilisateurs auront la possibilité d'accepter ou de refuser le renouvellement du consentement.",
+            "section9": "Transfert des données : En cas de nécessité de transférer les données vers une autre base de données, ce transfert n'aura lieu qu'avec le consentement des utilisateurs, conformément à l'",
+            "article6": "article 6 du RGPD",
+            "section10": ", qui exige le consentement explicite pour le traitement des données personnelles. En cliquant sur 'Accepter', les utilisateurs donnent ce consentement. Le transfert des données en dehors de l'Espace économique européen (EEE) ne sera effectué qu'avec des garanties adéquates, comme spécifié dans les ",
+            "articles44to50": "articles 44-50 du RGPD",
+            "section11": "Communications personnalisées : Avec le consentement des utilisateurs, nous pouvons envoyer des emails personnalisés ou les contacter par d'autres moyens en utilisant leurs données personnelles, comme le permet l'",
+            "articles6": "articles 6",
+            "and": " et ",
+            "article7": "7 du RGPD",
+            "section12": ". Les utilisateurs ont le droit de retirer leur consentement à tout moment, comme stipulé dans l'",
+            "article73": "article 7(3) du RGPD",
+            "cookiePolicy": "Politique de cookies et de confidentialité",
+            "accept": "J'accepte"
+          }
+        }
+      },
+
+      "selectOptions": {
+        "churches": {
+          "option1": "Sélectionnez votre église"
+        },
+        "pastors": {
+          "option1": "Sélectionnez votre pasteur"
+        }
+      }
+    }
+  },
+  "homeTitle": {
+    "title": "Sed <1>hospitalarios</1> los unos con los otros <2 />sin quejaros.",
+    "description": "Puedes compartir tu casa o encontrar a una persona encantadora que está compartiendo.<2 />1 Pedro 4:9"
+  }
+}
