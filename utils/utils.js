@@ -30,10 +30,7 @@ export const formattedDate = (dateInput) => {
     month = month.toString().padStart(2, "0");
     let day = date.getDate();
     day = day.toString().padStart(2, "0");
-    console.log(`${year}-${month}-${day}`);
     return `${year}-${month}-${day}`;
-    // const formattedDateISO = date.toISOString().split("T")[0];
-    // return formattedDateISO;
   } catch (error) {
     console.log(error);
     return ""; // Return an empty string or handle the error as needed
