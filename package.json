@@ -5,8 +5,8 @@
   "type": "module",
   "author": "lucaimbalzano",
   "scripts": {
-    "dev": "vite --mode development --port 5173 --host",
-    "build": "vite build --mode production",
+    "dev": "vite --port 5173 --host",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

@@ -1,58 +1,52 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd());
-  const BASE_API_URL = `${env.VITE_ENDPOINT_API_V1 ?? "http://localhost:3000"}`;
-
-  return {
-    server: {
-      origin: BASE_API_URL,
-      proxy: {
-        "/auth": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/house": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/user": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/role": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/church": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/queue-user-registration": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/queue-house-registration": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/forgot-password/request": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/forgot-password/check": {
-          target: BASE_API_URL,
-          secure: false,
-        },
-        "/forgot-password/reset": {
-          target: BASE_API_URL,
-          secure: false,
-        },
+export default defineConfig({
+  server: {
+    proxy: {
+      "/auth": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/house": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/user": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/role": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/church": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/queue-user-registration": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/queue-house-registration": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/forgot-password/request": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/forgot-password/check": {
+        target: "http://localhost:3000",
+        secure: false,
+      },
+      "/forgot-password/reset": {
+        target: "http://localhost:3000",
+        secure: false,
       },
     },
+  },
 
-    plugins: [react()],
-  };
+  plugins: [react()],
 });
