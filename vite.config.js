@@ -13,42 +13,62 @@ export default defineConfig(({ mode }) => {
         "/auth": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/house": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/user": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/role": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/church": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/queue-user-registration": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/queue-house-registration": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/forgot-password/request": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/forgot-password/check": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
         "/forgot-password/reset": {
           target: "https://houseavbackend-production.up.railway.app",
           secure: false,
+          changeOrigin: false,
+          logLevel: "debug", // Add this line
         },
       },
     },

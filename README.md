@@ -38,6 +38,17 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+### Docker
+Build the Docker Image
+```bash
+$ docker build -t houseav.frontend .
+```
+
+Run the Docker Container
+```bash
+$ docker run -p 5173:5173 houseav.frontend
+```
+
 ### Preview 
 
 ![houseav](https://github.com/lucaimbalzano/houseav/assets/45575898/ef57b7f6-9478-456d-b9a7-4db7f43392ae)
