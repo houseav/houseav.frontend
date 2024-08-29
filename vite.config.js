@@ -8,51 +8,53 @@ export default defineConfig(({ mode }) => {
   console.log("BASE_API_URL", BASE_API_URL);
   return {
     server: {
-      origin: BASE_API_URL,
+      origin: "https://houseavbackend-production.up.railway.app",
       proxy: {
         "/auth": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/house": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/user": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/role": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/church": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/queue-user-registration": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/queue-house-registration": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/forgot-password/request": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/forgot-password/check": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
         "/forgot-password/reset": {
-          target: BASE_API_URL,
+          target: "https://houseavbackend-production.up.railway.app",
           secure: false,
         },
       },
     },
-
+    preview: {
+      port: 5173,
+    },
     plugins: [react()],
   };
 });
