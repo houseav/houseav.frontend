@@ -151,14 +151,18 @@ export default function QueueRegister() {
       {users.length > 0 && churchesViewAdmin.length > 0 && (
         <div>
           <div className="flex flex-wrap gap-2">
-            {churchesViewAdmin.map((church) => (
-              <Badge
-                message={church.name}
-                styleType="blue"
-                key={church.id}
-                className="w-1/5"
-              />
-            ))}
+            {churchesViewAdmin.length < 50 ? (
+              churchesViewAdmin.map((church) => (
+                <Badge
+                  message={church.name}
+                  styleType="blue"
+                  key={church.id}
+                  className="w-1/5"
+                />
+              ))
+            ) : (
+              <Badge message="All Churches" styleType="red" className="w-1/5" />
+            )}
           </div>
 
           <div className="flex flex-col">
