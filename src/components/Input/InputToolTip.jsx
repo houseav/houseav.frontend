@@ -34,7 +34,7 @@ export default function InputToolTip({
     <div className="flex flex-col items-center justify-center w-full">
       {label && (
         <div className="w-full flex justify-center mt-1 mb-3">
-          <p className="text-md text-gray-500">{label}</p>
+          <p className="text-xs md:text-md text-gray-500">{label}</p>
         </div>
       )}
 
@@ -61,7 +61,7 @@ export default function InputToolTip({
       </div>
 
       {showTooltip && (
-        <div className="flex mt-3 mb-3 mr-3 ml-6 bg-gray-500 text-white text-sm rounded pt-3 pb-3 py-1 px-2 shadow-lg transition-opacity duration-300 ease-in-out opacity-100">
+        <div className="flex mt-3 mb-3 mr-3 ml-6 bg-gray-500 text-white text-xs md:text-sm rounded pt-3 pb-3 py-1 px-2 shadow-lg transition-opacity duration-300 ease-in-out opacity-100">
           {toolTipMessage}
         </div>
       )}
