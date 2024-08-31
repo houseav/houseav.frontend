@@ -5,70 +5,70 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   const BASE_API_URL = `${env.VITE_ENDPOINT_API_V1 ?? "http://localhost:3000"}`;
-  console.log("BASE_API_URL", BASE_API_URL);
+
   return {
     server: {
-      origin: "https://houseavbackend-production.up.railway.app",
+      origin: BASE_API_URL,
       proxy: {
         "/auth": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/house": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/user": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/role": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/church": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/queue-user-registration": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/queue-house-registration": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/forgot-password/request": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/forgot-password/check": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
         "/forgot-password/reset": {
-          target: "https://houseavbackend-production.up.railway.app",
+          target: BASE_API_URL,
           secure: false,
           changeOrigin: true,
-          logLevel: "debug", // Add this line
+          logLevel: "debug",
         },
       },
     },

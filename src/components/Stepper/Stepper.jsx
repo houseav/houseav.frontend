@@ -172,9 +172,9 @@ const Stepper = ({ formData, setFormData, handleSubmit }) => {
       <h2 className="text-xl font-semibold mt-5 mb-8 text-center">
         {t("src.components.stepper.step2.title")}
       </h2>
-      <div className="w-[100%] md:w-[70%] flex justify-center pl-24 md:pl-16">
+      <div className="w-[100%] md:w-[70%] flex justify-center pl-1 md:pl-16">
         <div className="w-full max-w-3xl">
-          <div className="flex flex-col gap-4 w-[80%]">
+          <div className="flex flex-col gap-4 w-[100%] md:w-[80%]">
             <InputToolTip
               id="namePastorLeader"
               formData={formData}
