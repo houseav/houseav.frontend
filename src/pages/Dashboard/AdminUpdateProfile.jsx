@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -67,7 +67,6 @@ export default function AdminUpdateProfile({ user, setUser, onCloseModal }) {
   };
 
   useEffect(() => {
-    console.log("USER VERIFIED::::" + userVerified);
     if (user) user.verified = userVerified;
   }, [userVerified]);
 

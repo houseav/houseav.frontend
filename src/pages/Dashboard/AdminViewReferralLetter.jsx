@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
+import React from "react";
 
 export default function AdminViewReferralLetter({ referenceLetterViewUser }) {
   const referenceLetter = referenceLetterViewUser || {};

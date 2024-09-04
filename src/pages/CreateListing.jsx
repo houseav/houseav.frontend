@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { firebaseApp } from "../firebase.js";
 import {
   getDownloadURL,
@@ -15,6 +15,7 @@ import InputToolTip from "../components/Input/InputToolTip.jsx";
 import { LuCopyPlus } from "react-icons/lu";
 import Spinner from "../components/Spinner.jsx";
 import { useTranslation } from "react-i18next";
+const BASE_URL = import.meta.env.VITE_ENDPOINT_API ?? "http://localhost:3000";
 
 export default function CreateListing() {
   const { t } = useTranslation();
@@ -223,7 +224,7 @@ export default function CreateListing() {
       formData.bedrooms = +formData.bedrooms;
       formData.bathrooms = +formData.bathrooms;
       formData.sleepPlace = +formData.sleepPlace;
-      const res = await fetch("/house", {
+      const res = await fetch(`${BASE_URL}/house`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import SafeSpinner from "../../assets/spinner-safe.gif";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 export default function ProfileInReview() {
   const { t } = useTranslation();

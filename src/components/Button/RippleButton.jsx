@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./RippleButton.css";
 import PropTypes from "prop-types";
 

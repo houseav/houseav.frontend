@@ -1,3 +1,4 @@
+import React from "react";
 import SafeSpinner from "../assets/spinner-safe.gif";
 import { useTranslation } from "react-i18next";
 

@@ -1,5 +1,6 @@
 import gif from "../assets/spinner-loading.gif";
 import PropTypes from "prop-types";
+import React from "react";
 
 export default function Spinner({ height, width }) {
   if (!height) height = 25;
