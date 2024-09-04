@@ -96,6 +96,8 @@ export default function QueueRegister() {
 
   const getChurchesViewAdmin = async (id) => {
     try {
+      console.log("ID:::getChurchesViewAdmin", id);
+      console.log("currentuser", currentUser);
       const res = await fetch(`/user/admin-view-churches/${id}`, {
         method: "GET",
         headers: {

@@ -22,7 +22,7 @@ export default class SecurityEnDe {
   async generateKey(keyMaterial, salt) {
     const algorithm = SecurityEnDe.ALGORITHM;
     const hash = SecurityEnDe.HASH;
-    const iterationCount = SecurityEnDe.ITERATION_COUNT;
+    const iterationCount = 100000;
     const keySize = SecurityEnDe.KEY_SIZE;
     try {
       return crypto.subtle.deriveKey(

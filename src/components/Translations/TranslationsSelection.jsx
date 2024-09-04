@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useCookies } from "react-cookie";
 import PropTypes from "prop-types";
@@ -85,5 +85,5 @@ export default function TranslationsSelection({ isLogged }) {
 }
 
 TranslationsSelection.propTypes = {
-  isLogged: PropTypes.bool,
+  isLogged: PropTypes.object,
 };

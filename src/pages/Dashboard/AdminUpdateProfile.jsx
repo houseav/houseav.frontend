@@ -67,7 +67,6 @@ export default function AdminUpdateProfile({ user, setUser, onCloseModal }) {
   };
 
   useEffect(() => {
-    console.log("USER VERIFIED::::" + userVerified);
     if (user) user.verified = userVerified;
   }, [userVerified]);
 
