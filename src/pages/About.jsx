@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import GridPattern from "../components/bg-pattern/animated-grid-pattern/AnimatedGridPattern";
 import VelocityScroll from "../components/text/scroll-based-velocity/ScrollBasedVelocity";
 import { useTranslation } from "react-i18next";

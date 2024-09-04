@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -11,6 +11,26 @@ import {
 
 import Spinner from "../components/Spinner";
 import FloatingLabelInput from "../components/Input/FloatingLabelnput";
+import { firebaseApp } from "../firebase";
+const BASE_URL = import.meta.env.VITE_ENDPOINT_API ?? "http://localhost:3000";
+
+console.log(`IMPORT.META.ENV`, import.meta.env);
+console.log(
+  `FIREBASE(${import.meta.env.VITE_FIREBASE_AKEY_ID}) AND ENDPOINT (${
+    import.meta.env.VITE_ENDPOINT_API
+  })ALGORITHM(${import.meta.env.VITE_SEC_ITERATION_COUNT}))`
+);
+
+const envVariables = {
+  userQueueRegistration: import.meta.env.VITE_USER_QUEUE_REGISTRATION,
+  userQueueRegistrationKey: import.meta.env.VITE_USER_QUEUE_REGISTRATION_KEY,
+  securityAlgorithm: import.meta.env.VITE_SEC_ALGORITHM,
+  securityHash: import.meta.env.VITE_SEC_HASH,
+  securityKeySize: import.meta.env.VITE_SEC_KEY_SIZE,
+  securityIterationCount: import.meta.env.VITE_SEC_ITERATION_COUNT,
+};
+
+console.log("ALGOTIT", envVariables);
 
 export default function SignIn() {
   const { t } = useTranslation();
@@ -50,12 +70,25 @@ export default function SignIn() {
   };
 
   const handleSubmit = async (event) => {
+    console.log(`BASE_URL`, BASE_URL);
+    console.log(
+      `FIREBASE IN SIGNIN `,
+      {
+        apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+        authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+        storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+        appId: import.meta.env.VITE_FIREBASE_APP_ID,
+      },
+      firebaseApp
+    );
     event.preventDefault();
     let isValidFormData = checkFormaData(formData);
     if (!isValidFormData) return;
     try {
       dispatch(signInStart());
-      const res = await fetch("/auth/sign-in", {
+      const res = await fetch(`${BASE_URL}/auth/sign-in`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

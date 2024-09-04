@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import PropTypes from "prop-types";

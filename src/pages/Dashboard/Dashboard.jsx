@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaUserShield } from "react-icons/fa";
 import { FaHouseCircleCheck } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
 export default function Dashboard() {
   const { t } = useTranslation();

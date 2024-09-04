@@ -14,10 +14,12 @@
 }
 
 # site block, listens on the $PORT environment variable, automatically assigned by railway
-:{$PORT:3000} {
+:{$PORT:5173} {
 	# access logs
 	log {
-		format json # set access log format to json mode
+	#	format json # set access log format to json mode
+		output stdout # Print logs to standard output
+		format console # Use a human-readable log format
 	}
 
 	# health check for railway

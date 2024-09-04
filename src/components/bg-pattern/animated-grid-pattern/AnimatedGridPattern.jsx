@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { cn } from "../../../../utils/utils";

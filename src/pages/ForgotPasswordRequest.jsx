@@ -1,7 +1,7 @@
 import LoadingSpinner from "../assets/spinner-loading.gif";
 import { useTranslation } from "react-i18next";
 import FloatingLabelInput from "../components/Input/FloatingLabelnput";
-import { useState } from "react";
+import React, { useState } from "react";
 import { BsFillSendArrowUpFill } from "react-icons/bs";
 import { AiOutlineSend } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
