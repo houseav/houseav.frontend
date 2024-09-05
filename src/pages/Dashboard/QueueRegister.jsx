@@ -10,6 +10,7 @@ import AdminUpdateProfile from "./AdminUpdateProfile";
 import AdminViewReferralLetter from "./AdminViewReferralLetter";
 import ProfileModal from "../../components/Modal";
 import Badge from "../../components/Badge";
+import { BASE_URL } from "../../../utils/constants";
 
 export default function QueueRegister() {
   const { t } = useTranslation();
@@ -76,14 +77,17 @@ export default function QueueRegister() {
 
   const fetchUserToAccept = async (churches) => {
     try {
-      const res = await fetch("/queue-user-registration/view-admin-church", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${currentUser.access_token}`,
-        },
-        body: JSON.stringify({ churches }),
-      });
+      const res = await fetch(
+        `${BASE_URL}/queue-user-registration/view-admin-church`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${currentUser.access_token}`,
+          },
+          body: JSON.stringify({ churches }),
+        }
+      );
       const acceptableStatusCodes = [200, 201, 202];
       if (acceptableStatusCodes.includes(res.status)) {
         const data = await res.json();
@@ -98,7 +102,7 @@ export default function QueueRegister() {
     try {
       console.log("ID:::getChurchesViewAdmin", id);
       console.log("currentuser", currentUser);
-      const res = await fetch(`/user/admin-view-churches/${id}`, {
+      const res = await fetch(`${BASE_URL}/user/admin-view-churches/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

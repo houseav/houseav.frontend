@@ -13,6 +13,7 @@ import {
   signOutUserSuccess,
   signOutUserStart,
 } from "../../redux/user/userSlice";
+import { BASE_URL } from "../../../utils/constants";
 
 export const handleFileUploadLogic = async (
   file,
@@ -54,7 +55,7 @@ export const handleShowListingsLogic = async (
 ) => {
   try {
     setShowListingsError(false);
-    const res = await fetch(`/house/user/${id}`, {
+    const res = await fetch(`${BASE_URL}/house/user/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${currentUser.access_token}`,
@@ -78,7 +79,7 @@ export const handleShowListingsLogic = async (
 export const handleSignOutLogic = async (dispatch) => {
   try {
     dispatch(signOutUserStart());
-    const res = await fetch("/auth/sign-out");
+    const res = await fetch(`${BASE_URL}/auth/sign-out`);
     const data = await res.json();
     const acceptableStatusCodes = [200, 201, 202];
     if (!acceptableStatusCodes.includes(res.status)) {
@@ -94,7 +95,7 @@ export const handleSignOutLogic = async (dispatch) => {
 export const handleDeleteUserLogic = async (dispatch, currentUser) => {
   try {
     dispatch(deleteUserStart());
-    const res = await fetch(`/house/${currentUser.id}`, {
+    const res = await fetch(`${BASE_URL}/house/${currentUser.id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${currentUser.access_token}`,
@@ -113,7 +114,8 @@ export const handleDeleteUserLogic = async (dispatch, currentUser) => {
 
 export const handleUpdateSingleProfileVerified = async (access_token) => {
   try {
-    const res = await fetch(`/`, {
+    // TODO Check
+    const res = await fetch(`${BASE_URL}/`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${access_token}`,

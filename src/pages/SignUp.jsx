@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Stepper from "../components/Stepper/Stepper";
 import { useTranslation } from "react-i18next";
+import { BASE_URL } from "../../utils/constants";
 
 export default function SignUp() {
   const { t } = useTranslation();
@@ -13,7 +14,7 @@ export default function SignUp() {
 
   const handleSubmit = async () => {
     setLoading(true);
-    const res = await fetch("/auth/sign-up", {
+    const res = await fetch(`${BASE_URL}/auth/sign-up`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

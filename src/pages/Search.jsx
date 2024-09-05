@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { FaSearch } from "react-icons/fa";
 import ListingItem from "../components/ListingItem";
 import ProfileInReview from "../pages/Profile/ProfileInReview";
+import { BASE_URL } from "../../utils/constants";
 
 export default function Search() {
   const { t } = useTranslation();
@@ -70,7 +71,7 @@ export default function Search() {
       setLoading(true);
       setShowMore(false);
       const searchQuery = urlParams.toString();
-      const res = await fetch(`/house/get?${searchQuery}`, {
+      const res = await fetch(`${BASE_URL}/house/get?${searchQuery}`, {
         headers: {
           Authorization: `Bearer ${currentUser.access_token}`,
         },
@@ -124,7 +125,7 @@ export default function Search() {
     const urlParams = new URLSearchParams(location.search);
     urlParams.set("startIndex", startIndex);
     const searchQuery = urlParams.toString();
-    const res = await fetch(`/house/get?${searchQuery}`, {
+    const res = await fetch(`${BASE_URL}/house/get?${searchQuery}`, {
       headers: {
         Authorization: `Bearer ${currentUser.access_token}`,
       },

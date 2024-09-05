@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import LoadingSpinner from "../assets/spinner-loading.gif";
 import FloatingLabelInput from "../components/Input/FloatingLabelnput";
 import { useLocation, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils/constants";
 
 export default function ForgotPassword() {
   const { t } = useTranslation();
@@ -48,13 +49,16 @@ export default function ForgotPassword() {
     }
     const searchQuery = urlParams.toString();
     const fetchData = async () => {
-      const res = await fetch(`/forgot-password/reset?${searchQuery}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ newPassword: formData.password }),
-        method: "PUT",
-      });
+      const res = await fetch(
+        `${BASE_URL}/forgot-password/reset?${searchQuery}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ newPassword: formData.password }),
+          method: "PUT",
+        }
+      );
       const data = await res.json();
       if (data.status === "error") {
         setErrors({
@@ -72,12 +76,15 @@ export default function ForgotPassword() {
   useEffect(() => {
     const fetchData = async () => {
       const searchQuery = urlParams.toString();
-      const res = await fetch(`/forgot-password/check?${searchQuery}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "GET",
-      });
+      const res = await fetch(
+        `${BASE_URL}/forgot-password/check?${searchQuery}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "GET",
+        }
+      );
       const data = await res.json();
       if (data.status === "error") {
         setErrors({

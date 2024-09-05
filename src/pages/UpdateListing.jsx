@@ -14,6 +14,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { formattedDate } from "../../utils/utils.js";
 import Spinner from "../components/Spinner.jsx";
 import { useTranslation } from "react-i18next";
+import { BASE_URL } from "../../utils/constants.js";
 
 export default function UpdateListing() {
   const { t } = useTranslation();
@@ -59,7 +60,7 @@ export default function UpdateListing() {
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.listingId;
-      const res = await fetch(`/house/${listingId}`, {
+      const res = await fetch(`${BASE_URL}/house/${listingId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${currentUser.access_token}`,
@@ -185,7 +186,7 @@ export default function UpdateListing() {
       formData.bedrooms = +formData.bedrooms;
       formData.bathrooms = +formData.bathrooms;
       formData.sleepPlace = +formData.sleepPlace;
-      const res = await fetch(`/house/${params.listingId}`, {
+      const res = await fetch(`${BASE_URL}/house/${params.listingId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

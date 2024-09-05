@@ -9,6 +9,7 @@ import Spinner from "../../components/Spinner";
 import Toggle from "../../components/Toggle";
 import SecurityEnDe from "../../../utils/security_en_de";
 import PropTypes from "prop-types";
+import { BASE_URL } from "../../../utils/constants";
 
 export default function AdminUpdateProfile({ user, setUser, onCloseModal }) {
   const { t } = useTranslation();
@@ -40,7 +41,7 @@ export default function AdminUpdateProfile({ user, setUser, onCloseModal }) {
     console.log("adminUpdateProfile::", user);
 
     try {
-      const res = await fetch("/queue-user-registration/verify", {
+      const res = await fetch(`${BASE_URL}/queue-user-registration/verify`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

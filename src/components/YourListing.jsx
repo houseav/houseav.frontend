@@ -4,6 +4,7 @@ import { BsHousesFill } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import React from "react";
+import { BASE_URL } from "../../utils/constants";
 
 export default function YourListing({
   userListings,
@@ -14,7 +15,7 @@ export default function YourListing({
   console.log("YourListing", userListings);
   const handleListingDelete = async (listingId) => {
     try {
-      const res = await fetch(`/house/${listingId}`, {
+      const res = await fetch(`${BASE_URL}/house/${listingId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${currentUser.access_token}`,

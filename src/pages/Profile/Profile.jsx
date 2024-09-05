@@ -27,6 +27,7 @@ import Spinner from "../../components/Spinner";
 import YourListing from "../../components/YourListing";
 import ProfileModal from "../../components/Modal";
 import FloatingLabelInput from "../../components/Input/FloatingLabelnput";
+import { BASE_URL } from "../../../utils/constants";
 
 export default function Profile() {
   const { t } = useTranslation();
@@ -132,7 +133,7 @@ export default function Profile() {
     if (!checkFormData()) return;
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`/user/${currentUser.user.id}`, {
+      const res = await fetch(`${BASE_URL}/user/${currentUser.user.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

@@ -8,6 +8,7 @@ import { formattedDate } from "../../../utils/utils";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import Toggle from "../../components/Toggle";
 import Spinner from "../../components/Spinner";
+import { BASE_URL } from "../../../utils/constants";
 
 export default function AdminUpdateHouse({ house, setHouse, onCloseModal }) {
   const { t } = useTranslation();
@@ -39,7 +40,7 @@ export default function AdminUpdateHouse({ house, setHouse, onCloseModal }) {
     }
     house.verified = houseVerified;
     try {
-      const res = await fetch("/queue-house-registration/verify", {
+      const res = await fetch(`${BASE_URL}/queue-house-registration/verify`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -31,6 +31,7 @@ import { IoCall, IoMailOutline } from "react-icons/io5";
 import { MdConnectWithoutContact } from "react-icons/md";
 import { TbMailFilled } from "react-icons/tb";
 import { MdVerified } from "react-icons/md";
+import { BASE_URL } from "../../utils/constants.js";
 
 export default function Listing() {
   const { t } = useTranslation();
@@ -69,7 +70,7 @@ export default function Listing() {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`/house/${params.id}`);
+        const res = await fetch(`${BASE_URL}/house/${params.id}`);
         const acceptableStatusCodes = [200, 201, 202];
         if (!acceptableStatusCodes.includes(res.status)) {
           setError(true);

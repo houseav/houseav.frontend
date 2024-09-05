@@ -11,6 +11,7 @@ import ListingItem from "../components/ListingItem";
 import SearchFilter from "../components/SearchFilter/SearchFilter";
 import DotPattern from "../components/bg-pattern/dot-pattern/DotPattern";
 import { cn } from "../../utils/utils";
+import { BASE_URL } from "../../utils/constants";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch("/house/get?limit=4", {
+        const res = await fetch(`${BASE_URL}/house/get?limit=4`, {
           headers: {
             Authorization: `Bearer ${currentUser.access_token}`,
           },

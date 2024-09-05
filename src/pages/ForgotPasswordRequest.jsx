@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { BsFillSendArrowUpFill } from "react-icons/bs";
 import { AiOutlineSend } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils/constants";
 
 export default function ForgotPasswordRequest() {
   const { t } = useTranslation();
@@ -19,7 +20,7 @@ export default function ForgotPasswordRequest() {
       return;
     }
     setLoading(true);
-    const res = await fetch(`/forgot-password/request`, {
+    const res = await fetch(`${BASE_URL}/forgot-password/request`, {
       headers: {
         "Content-Type": "application/json",
       },

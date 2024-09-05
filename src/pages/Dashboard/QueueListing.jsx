@@ -5,6 +5,7 @@ import { FaHouseUser } from "react-icons/fa";
 import AdminUpdateHouse from "./AdminUpdateHouse";
 import ProfileModal from "../../components/Modal";
 import PropTypes from "prop-types";
+import { BASE_URL } from "../../../utils/constants";
 
 export default function QueueListing() {
   const { t } = useTranslation();
@@ -41,7 +42,7 @@ export default function QueueListing() {
   useEffect(() => {
     const fetchUserToAccept = async () => {
       try {
-        const res = await fetch("/queue-house-registration", {
+        const res = await fetch(`${BASE_URL}/queue-house-registration`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${currentUser.access_token}`,
