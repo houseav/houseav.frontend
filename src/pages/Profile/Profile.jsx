@@ -218,14 +218,14 @@ export default function Profile() {
             <FloatingLabelInput
               label="username"
               onChange={handleChangeInput}
-              defaultValue={currentUser.user.username}
+              value={currentUser.user.username}
               error={errors.username}
               id="username"
             />
             <FloatingLabelInput
               id="email"
               label="email"
-              defaultValue={currentUser.user.email}
+              value={currentUser.user.email}
               onChange={handleChangeInput}
               error={errors.email}
             />
