@@ -42,7 +42,12 @@ export default function Profile() {
 
   const [showListingsError, setShowListingsError] = useState(false);
   const [userListings, setUserListings] = useState();
-  const [formDataUserUpdate, setFormDataUserUpdate] = useState({});
+  const [formDataUserUpdate, setFormDataUserUpdate] = useState({
+    username: currentUser.user.username,
+    email: currentUser.user.email,
+    password: "",
+    avatar: currentUser.user.avatar,
+  });
   const [modalInformations, setModalInformations] = useState({});
   const [errors, setErrors] = useState({});
   const modal = useRef();
@@ -209,7 +214,7 @@ export default function Profile() {
                 <span className="text-slate-400">{`Uploading ${fileProgression}%`}</span>
               ) : fileProgression === 100 ? (
                 <span className="text-blue-300">
-                  {t("src.pages.dashboard.profile.imageLoaded")}
+                  {t("src.pages.profile.imageLoaded")}
                 </span>
               ) : (
                 ""
