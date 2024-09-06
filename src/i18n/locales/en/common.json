@@ -121,7 +121,8 @@
         "searchResults": "Search results",
         "searchResultsLoad": "Loading..",
         "searchResultsLoadMore": "Load more results",
-        "searchNotAuth": "Oh oh, you are not authorized to view this page, please log in to continue or wait for your account to be verified."
+        "searchNotAuth": "Oh oh, you are not authorized to view this page, please log in to continue or wait for your account to be verified.",
+        "searchResultsLoading": "There are no houses available at the moment 🏡"
       },
       "listingInReview": {
         "title": "House Under Review",

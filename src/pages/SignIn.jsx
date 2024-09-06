@@ -57,6 +57,7 @@ export default function SignIn() {
     if (!isValidFormData) return;
     try {
       dispatch(signInStart());
+      console.log("home: ", BASE_URL);
       const res = await fetch(`${BASE_URL}/auth/sign-in`, {
         method: "POST",
         headers: {

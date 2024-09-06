@@ -120,7 +120,8 @@
         "searchResults": "Resultados de la búsqueda",
         "searchResultsLoad": "Cargando..",
         "searchResultsLoadMore": "Cargar más resultados",
-        "searchNotAuth": "Oh oh, no estás autorizado para ver esta página, por favor inicia sesión para continuar o espera a que tu cuenta sea verificada."
+        "searchNotAuth": "Oh oh, no estás autorizado para ver esta página, por favor inicia sesión para continuar o espera a que tu cuenta sea verificada.",
+        "searchResultsLoading": "No hay casas disponibles en este momento 🏡"
       },
       "listingInReview": {
         "title": "Casa en Revisión",

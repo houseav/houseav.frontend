@@ -268,7 +268,7 @@ export default function Search() {
               )}
               {loading && (
                 <p className="text-xl text-slate-700 text-center w-full">
-                  {t("src.pages.search.searchResultsLoading")}
+                  {t("src.pages.search.searchNoResults")}
                 </p>
               )}
 

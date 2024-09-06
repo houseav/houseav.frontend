@@ -121,7 +121,8 @@
         "searchResults": "Résultats de la recherche",
         "searchResultsLoad": "Chargement..",
         "searchResultsLoadMore": "Charger plus de résultats",
-        "searchNotAuth": "Oh oh, vous n'êtes pas autorisé à voir cette page, veuillez vous connecter pour continuer ou attendre que votre compte soit vérifié."
+        "searchNotAuth": "Oh oh, vous n'êtes pas autorisé à voir cette page, veuillez vous connecter pour continuer ou attendre que votre compte soit vérifié.",
+        "searchResultsLoading": "Aucune maison n'est disponible pour le moment 🏡"
       },
       "listingInReview": {
         "title": "Maison en cours de révision",
