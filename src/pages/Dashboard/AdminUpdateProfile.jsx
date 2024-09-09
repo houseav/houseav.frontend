@@ -57,7 +57,7 @@ export default function AdminUpdateProfile({ user, setUser, onCloseModal }) {
         const data = await res.json();
         console.log("DATA:::", data);
         setLoading(false);
-        navigate("/queue-register");
+        navigate(`/queue-register`);
         onCloseModal(user);
         window.location.reload();
         return;
