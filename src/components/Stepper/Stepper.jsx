@@ -134,6 +134,7 @@ const Stepper = ({ formData, setFormData, handleSubmit }) => {
           error={errors.email}
         />
         <PhoneNumberInput
+          id="user-number"
           errors={errors}
           formData={formData}
           handleChange={handleChange}

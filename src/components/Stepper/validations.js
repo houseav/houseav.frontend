@@ -29,6 +29,20 @@ export const validateStep1 = (
     isValid = false;
   }
 
+  if (!formData.userInfo?.number) {
+    newErrors.number = "Phone number is required";
+    isValid = false;
+  } else if (formData.userInfo?.number.length < 7) {
+    newErrors.number = "Phone number is less than 7 digits";
+    isValid = false;
+  } else if (formData.userInfo?.number.length > 15) {
+    newErrors.number = "Phone number is more than 15 digits";
+  }
+  
+  
+
+  
+
   if (!selectedOption) {
     setValidation("Please select a church");
     newErrors.selectedOption = "Please select a church";

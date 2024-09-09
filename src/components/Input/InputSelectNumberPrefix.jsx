@@ -12,9 +12,9 @@ const PhoneNumberInput = ({ formData, handleChange, errors }) => {
   const [selectedOption, setSelectedOption] = useState({
     value: DEFAULT_PREFIX_NUMBER,
     label: (
-      <div className="flex items-center">
-        <span className="fi fi-it mr-2"></span>
-        {DEFAULT_PREFIX_NUMBER}
+      <div className="flex items-center ">
+        <span className="fi fi-it width-[10px]"></span>
+        <span className="text-sm ml-1"> {DEFAULT_PREFIX_NUMBER}</span>
       </div>
     ),
     country: "italy",
@@ -84,7 +84,7 @@ const PhoneNumberInput = ({ formData, handleChange, errors }) => {
           onChange={handlePrefixChange}
           options={options}
           styles={customStyles}
-          className="w-1/3"
+          className="w-1/2.5"
         />
 
         <FloatingLabelInput

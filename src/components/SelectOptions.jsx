@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { TbHomeHeart } from "react-icons/tb";
 import FloatingLabelInput from "./Input/FloatingLabelnput";
 import PropTypes from "prop-types";
+import { BASE_URL } from "../../utils/constants";
 
 export default function SelectOptions({ uri, onSelectedOption, type, error }) {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ export default function SelectOptions({ uri, onSelectedOption, type, error }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(uri);
+        const res = await fetch(`${BASE_URL}${uri}`);
         const acceptableStatusCodes = [200, 201, 202];
         if (!acceptableStatusCodes.includes(res.status)) {
           console.error("Error while deleting this house");

@@ -9,7 +9,7 @@ export default function InputToolTip({
   placeholder,
   setFormData,
   toolTipMessage,
-  label,
+  label = " ",
   type = "text",
   nameobject,
   error,

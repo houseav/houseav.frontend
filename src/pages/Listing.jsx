@@ -253,7 +253,7 @@ export default function Listing() {
                   : t("src.pages.listingPage.isNotPresent")}
               </li>
 
-              <li className="flex items-center gap-1 whitespace-nowrap ">
+              <div className="flex items-center gap-1 whitespace-nowrap ">
                 <FaChair className="text-lg" />
                 <li className="flex items-center gap-1 whitespace-nowrap">
                   <FaParking className="text-lg" />
@@ -261,7 +261,7 @@ export default function Listing() {
                     ? t("src.pages.listingPage.furnished")
                     : t("src.pages.listingPage.notFurnished")}
                 </li>
-              </li>
+              </div>
               <li className="flex items-center gap-1 whitespace-nowrap ">
                 <FaWifi className="text-lg" />
                 {listing.wifi ? "Wifi" : "No wifi"}
