@@ -45,7 +45,6 @@ export default function Profile() {
   const [formDataUserUpdate, setFormDataUserUpdate] = useState({
     username: currentUser.user.username,
     email: currentUser.user.email,
-    password: "",
     avatar: currentUser.user.avatar,
   });
   const [modalInformations, setModalInformations] = useState({});
@@ -178,7 +177,7 @@ export default function Profile() {
       currentUser
     );
   };
-
+  console.log(currentUser);
   return (
     <div className="p-3 max-w-lg mx-auto h-screen">
       <ProfileModal
@@ -202,7 +201,11 @@ export default function Profile() {
               onChange={(event) => setFile(event.target.files[0])}
             />
             <img
-              src={formDataUserUpdate?.avatar || defaultPhotoProfile}
+              src={
+                formDataUserUpdate?.avatar === "default"
+                  ? defaultPhotoProfile
+                  : formDataUserUpdate?.avatar
+              }
               alt="profile"
               className="rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2 hover:scale-105 shadow-lg hover:border-gray-400"
               onClick={() => fileRef.current.click()}
@@ -223,24 +226,31 @@ export default function Profile() {
             <FloatingLabelInput
               label="username"
               onChange={handleChangeInput}
-              value={currentUser.user.username}
+              value={formDataUserUpdate.username}
               error={errors.username}
               id="username"
             />
             <FloatingLabelInput
               id="email"
               label="email"
-              value={currentUser.user.email}
+              value={formDataUserUpdate.email}
               onChange={handleChangeInput}
               error={errors.email}
             />
-            <FloatingLabelInput
-              id="password"
-              label="password"
-              type="password"
-              onChange={handleChangeInput}
-            />
+            {/* <FloatingLabelInput
+            id="password"
+            label="password"
+            type="password"
+            onChange={handleChangeInput}
+          /> */}
 
+            <div className="flex gap-2">
+              <Link to={"/forgot-password-request"}>
+                <span className="text-blue-500/50 hover:text-blue-600/50 hover:scale-105">
+                  Forgot Password?
+                </span>
+              </Link>
+            </div>
             <button
               disabled={loading}
               className="w-full text-center mt-4 justify-center text-gray-900 font-semibold py-3 px-6 bg-gray-400 bg-opacity-50 rounded-lg shadow-md hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300 ease-in-out flex items-center gap-3"
