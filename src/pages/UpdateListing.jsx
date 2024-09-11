@@ -186,6 +186,8 @@ export default function UpdateListing() {
       formData.bedrooms = +formData.bedrooms;
       formData.bathrooms = +formData.bathrooms;
       formData.sleepPlace = +formData.sleepPlace;
+
+      console.log(`HOUSE UPDATE: ${JSON.stringify(formData)}`);
       const res = await fetch(`${BASE_URL}/house/${params.listingId}`, {
         method: "PATCH",
         headers: {
