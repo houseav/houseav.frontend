@@ -18,12 +18,14 @@ import QueueListing from "./pages/Dashboard/QueueListing";
 import NotFound from "./pages/NotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 import ForgotPasswordRequest from "./pages/ForgotPasswordRequest";
+import ProfileVerified from "./pages/Profile/ProfileVerified";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
+        <Route path="/profile-verified" element={<ProfileVerified />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />

@@ -74,7 +74,7 @@ export default function Home() {
             <img
               src="./roomHomePage2.png"
               alt=""
-              className="h-[290px] w-[290px] mb-24 sm:h-[350px] sm:w-[490px] md:h-[600px] md:h-[400px] lg:h-[650px] lg:w-[780px] items-center"
+              className="h-[290px] w-[290px] mb-24 sm:h-[350px] sm:w-[490px] md:h-[500px] md:h-[400px] lg:h-[550px] lg:w-[580px] items-center"
             />
           </div>
         </div>
