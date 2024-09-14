@@ -2,6 +2,7 @@ import SafeSpinner from "../../assets/spinner-safe.gif";
 import { useTranslation } from "react-i18next";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaSignOutAlt } from "react-icons/fa";
 
 export default function ProfileVerified() {
   const { t } = useTranslation();
@@ -25,6 +26,11 @@ export default function ProfileVerified() {
     };
   }, []);
 
+  const handleSignOut = async () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
   const handlLogout = () => {
     localStorage.clear();
     navigate("/sign-in");
@@ -43,14 +49,21 @@ export default function ProfileVerified() {
               You have been logged out due to inactivity.
             </p>
           ) : (
-            <p className="mt-3 text-gray-700 text-xl">
+            <div className="mt-3 text-gray-700 text-xl">
               Your profile has been successfully verified.
               <br /> Please log in again to continue.
               <br />
               <span className="text-red-500">
                 You will be logged out in {timeLeft} seconds...
               </span>
-            </p>
+              <div
+                className="flex justify-start items-center space-x-2 m-5 text-base text-blue-600 hover:text-blue-400 ease-in-out hover:cursor-pointer"
+                onClick={handlLogout}
+              >
+                <FaSignOutAlt />
+                <p>Sign out</p>
+              </div>
+            </div>
           )}
           <br />
           <p className="text-gray-200">houseav.</p>
