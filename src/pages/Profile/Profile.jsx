@@ -289,7 +289,7 @@ export default function Profile() {
               {t("src.pages.profile.btnDelete")}
             </span>
             <span
-              className="text-blue-500 cursor-pointer flex items-center gap-2 hover:scale-105"
+              className="text-blue-500 cursor-pointer flex items-center gap-2 hover:scale-105 m-5"
               onClick={() => handleOpenCartClick("signout")}
             >
               <FaSignOutAlt />

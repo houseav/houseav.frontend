@@ -19,11 +19,11 @@ export default function ProfileInReview() {
             <br /> {t("src.pages.profileInReview.messagePart2")}
           </p>
           <br />
-          <p className="text-gray-500 pb-4">
+          <p className="text-gray-300 pb-4 pt-8 text-sm">
             {t("src.pages.profileInReview.messagePart3")}
             <br />
           </p>
-          <p className="text-gray-200">houseav.</p>
+          <p className="text-gray-200 animate-pulse">houseav.</p>
         </div>
       </div>
     </>

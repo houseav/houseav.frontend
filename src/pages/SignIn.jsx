@@ -104,7 +104,7 @@ export default function SignIn() {
           {loading ? <Spinner /> : t("src.pages.signin.buttonSignIn")}
         </button>
       </form>
-      <div className="flex justify-between mt-5">
+      <div className="flex-wrap sm:flex space-y-4 justify-between mt-5">
         <div className="flex gap-2">
           <p>{t("src.pages.signin.account")}</p>
           <Link to={"/sign-up"}>

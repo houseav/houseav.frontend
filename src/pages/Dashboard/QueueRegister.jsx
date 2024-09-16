@@ -18,6 +18,7 @@ export default function QueueRegister() {
   const [users, setUsers] = useState([]);
   const [churchesViewAdmin, setChurchesViewAdmin] = useState([]);
   const [referenceLetterViewUser, setReferenceLetterViewUser] = useState(null);
+  const [errors, setErrors] = useState(null);
   const [userToUpdateRetrivedOnClick, setUserToUpdateRetrivedOnClick] =
     useState(null);
   const modal = useRef();
@@ -63,7 +64,8 @@ export default function QueueRegister() {
   useEffect(() => {
     async function fetchData() {
       const churchesView = await getChurchesViewAdmin(currentUser.user.id);
-      if (!churchesView) {
+      if (churchesView && churchesView.error == 401) {
+        setErrors(churchesView.message);
         return;
       }
       const usersRetrieved = await fetchUserToAccept(churchesView);
@@ -76,6 +78,7 @@ export default function QueueRegister() {
   }, [currentUser]);
 
   const fetchUserToAccept = async (churches) => {
+    console.log("churches", churches);
     try {
       const res = await fetch(
         `${BASE_URL}/queue-user-registration/view-admin-church`,
@@ -122,153 +125,172 @@ export default function QueueRegister() {
 
   return (
     <div className="p-3 w-full max-w-lg md:max-w-none mx-auto h-screen px-4 md:px-14">
-      <ProfileModal
-        ref={modal}
-        title={t("src.pages.dashboard.queueUsers.adminEditUserTitleModal")}
-        iconHeader={
-          <FaUserEdit className="text-2xl pl-1 hover:scale-105 opacity-80" />
-        }
-        actions={modalActions("Update", "bg-orange-400")}
-        component={
-          <AdminUpdateProfile
-            user={userToUpdateRetrivedOnClick}
-            setUser={setUserToUpdateRetrivedOnClick}
-            onCloseModal={handleCloseModal}
+      {errors ? (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative animate-pulse text-center mt-24">
+          <strong className="font-bold">{errors}!</strong>
+        </div>
+      ) : (
+        <>
+          {/* Profile Modal */}
+          <ProfileModal
+            ref={modal}
+            title={t("src.pages.dashboard.queueUsers.adminEditUserTitleModal")}
+            iconHeader={
+              <FaUserEdit className="text-2xl pl-1 hover:scale-105 opacity-80" />
+            }
+            actions={modalActions("Update", "bg-orange-400")}
+            component={
+              <AdminUpdateProfile
+                user={userToUpdateRetrivedOnClick}
+                setUser={setUserToUpdateRetrivedOnClick}
+                onCloseModal={handleCloseModal}
+              />
+            }
           />
-        }
-      />
-      <ProfileModal
-        ref={modalReferralLetter}
-        title={t("src.pages.dashboard.queueUsers.adminEditUserRLetterTh")}
-        iconHeader={
-          <IoMdMailUnread className="text-2xl pl-0 hover:scale-105 opacity-80" />
-        }
-        actions={modalActions(null, "bg-orange-400")}
-        component={
-          <AdminViewReferralLetter
-            referenceLetterViewUser={referenceLetterViewUser}
-            onCloseModal={handleCloseModal}
-          />
-        }
-      />
-      <h1 className="text-3xl font-semibold text-center my-7">
-        {t("src.pages.dashboard.queueUsers.adminEditUserTitle")}
-      </h1>
-      {users.length > 0 && churchesViewAdmin.length > 0 && (
-        <div>
-          <div className="flex flex-wrap gap-2">
-            {churchesViewAdmin.length < 50 ? (
-              churchesViewAdmin.map((church) => (
-                <Badge
-                  message={church.name}
-                  styleType="blue"
-                  key={church.id}
-                  className="w-1/5"
-                />
-              ))
-            ) : (
-              <Badge message="All Churches" styleType="red" className="w-1/5" />
-            )}
-          </div>
 
-          <div className="flex flex-col">
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                <div className="overflow-hidden">
-                  <p className="text-sm text-gray-400 p-4">
-                    Total users: {users.length}
-                  </p>
-                  <table className="min-w-full text-left text-sm font-light text-surface">
-                    <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
-                      <tr>
-                        <th scope="col" className="px-6 py-4">
-                          #
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          username
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          email
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          {t(
-                            "src.pages.dashboard.queueUsers.adminEditUserChurchTh"
-                          )}
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          {t(
-                            "src.pages.dashboard.queueUsers.adminEditUserRLetterTh"
-                          )}
-                        </th>
-                        <th scope="col" className="px-6 py-4">
-                          {t(
-                            "src.pages.dashboard.queueUsers.adminEditUserCreatedAt"
-                          )}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {users.map(
-                        (user, index) =>
-                          user.verified === false &&
-                          user.fkUserId && (
-                            <tr
-                              className="border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-slate-200"
-                              key={user.fkUserId.id}
-                            >
-                              <td
-                                className="whitespace-nowrap px-6 py-4 font-medium"
-                                onClick={() => handleClickOpenModal(user)}
-                              >
-                                {index}
-                              </td>
-                              <td
-                                className="whitespace-nowrap px-6 py-4"
-                                onClick={() => handleClickOpenModal(user)}
-                              >
-                                {user.fkUserId.username}
-                              </td>
-                              <td
-                                className="whitespace-nowrap px-6 py-4"
-                                onClick={() => handleClickOpenModal(user)}
-                              >
-                                {user.fkUserId.email}
-                              </td>
-                              <td
-                                className="whitespace-nowrap px-6 py-4"
-                                onClick={() => handleClickOpenModal(user)}
-                              >
-                                {user.fkUserId.fkChurchId.name}
-                              </td>
-                              <td className="whitespace-nowrap px-6 py-4 flex justify-center items-center">
-                                <button
-                                  onClick={() =>
-                                    handleClickViewReferralLetter(
-                                      user.fkReferenceLetterId
-                                    )
-                                  }
-                                  className="pt-2 pb-2 pl-3 pr-3 bg-gray-400 shadow-lg text-xs text-white rounded-lg hover:scale-105 hover:bg-gray-700 ease-in-out flex items-center justify-center"
+          {/* Referral Letter Modal */}
+          <ProfileModal
+            ref={modalReferralLetter}
+            title={t("src.pages.dashboard.queueUsers.adminEditUserRLetterTh")}
+            iconHeader={
+              <IoMdMailUnread className="text-2xl pl-0 hover:scale-105 opacity-80" />
+            }
+            actions={modalActions(null, "bg-orange-400")}
+            component={
+              <AdminViewReferralLetter
+                referenceLetterViewUser={referenceLetterViewUser}
+                onCloseModal={handleCloseModal}
+              />
+            }
+          />
+
+          {/* Page Title */}
+          <h1 className="text-3xl font-semibold text-center my-7">
+            {t("src.pages.dashboard.queueUsers.adminEditUserTitle")}
+          </h1>
+
+          {/* Admin Church View */}
+          {users.length > 0 && churchesViewAdmin.length > 0 && (
+            <div>
+              <div className="flex flex-wrap gap-2">
+                {churchesViewAdmin.length < 50 ? (
+                  churchesViewAdmin.map((church) => (
+                    <Badge
+                      message={church.name}
+                      styleType="blue"
+                      key={church.id}
+                      className="w-1/5"
+                    />
+                  ))
+                ) : (
+                  <Badge
+                    message="All Churches"
+                    styleType="red"
+                    className="w-1/5"
+                  />
+                )}
+              </div>
+
+              {/* User Table */}
+              <div className="flex flex-col">
+                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div className="overflow-hidden">
+                      <p className="text-sm text-gray-400 p-4">
+                        Total users: {users.length}
+                      </p>
+                      <table className="min-w-full text-left text-sm font-light text-surface">
+                        <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
+                          <tr>
+                            <th scope="col" className="px-6 py-4">
+                              #
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              Username
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              Email
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              {t(
+                                "src.pages.dashboard.queueUsers.adminEditUserChurchTh"
+                              )}
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              {t(
+                                "src.pages.dashboard.queueUsers.adminEditUserRLetterTh"
+                              )}
+                            </th>
+                            <th scope="col" className="px-6 py-4">
+                              {t(
+                                "src.pages.dashboard.queueUsers.adminEditUserCreatedAt"
+                              )}
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {users.map(
+                            (user, index) =>
+                              !user.verified &&
+                              user.fkUserId && (
+                                <tr
+                                  className="border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-slate-200"
+                                  key={user.fkUserId.id}
                                 >
-                                  <SlEnvolopeLetter className="text-base" />
-                                </button>
-                              </td>
-
-                              <td
-                                className="whitespace-nowrap px-6 py-4"
-                                onClick={() => handleClickOpenModal(user)}
-                              >
-                                {user.fkUserId.createdAt}
-                              </td>
-                            </tr>
-                          )
-                      )}
-                    </tbody>
-                  </table>
+                                  <td
+                                    className="whitespace-nowrap px-6 py-4 font-medium"
+                                    onClick={() => handleClickOpenModal(user)}
+                                  >
+                                    {index}
+                                  </td>
+                                  <td
+                                    className="whitespace-nowrap px-6 py-4"
+                                    onClick={() => handleClickOpenModal(user)}
+                                  >
+                                    {user.fkUserId.username}
+                                  </td>
+                                  <td
+                                    className="whitespace-nowrap px-6 py-4"
+                                    onClick={() => handleClickOpenModal(user)}
+                                  >
+                                    {user.fkUserId.email}
+                                  </td>
+                                  <td
+                                    className="whitespace-nowrap px-6 py-4"
+                                    onClick={() => handleClickOpenModal(user)}
+                                  >
+                                    {user.fkUserId.fkChurchId.name}
+                                  </td>
+                                  <td className="whitespace-nowrap px-6 py-4 flex justify-center items-center">
+                                    <button
+                                      onClick={() =>
+                                        handleClickViewReferralLetter(
+                                          user.fkReferenceLetterId
+                                        )
+                                      }
+                                      className="pt-2 pb-2 pl-3 pr-3 bg-gray-400 shadow-lg text-xs text-white rounded-lg hover:scale-105 hover:bg-gray-700 ease-in-out flex items-center justify-center"
+                                    >
+                                      <SlEnvolopeLetter className="text-base" />
+                                    </button>
+                                  </td>
+                                  <td
+                                    className="whitespace-nowrap px-6 py-4"
+                                    onClick={() => handleClickOpenModal(user)}
+                                  >
+                                    {user.fkUserId.createdAt}
+                                  </td>
+                                </tr>
+                              )
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
     </div>
   );
