@@ -101,6 +101,7 @@ export const validateStep2 = (formData, setValidation, newErrors, isValid) => {
 
   if (!formData.referenceLetter?.numberChurch) {
     newErrors.numberChurch = "Number church is required";
+    isValid = false;
   }
 
   setValidation("Please fill in all fields");

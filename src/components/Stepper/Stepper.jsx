@@ -31,6 +31,7 @@ const Stepper = ({ formData, setFormData, handleSubmit }) => {
   const [complete, setComplete] = useState(false);
   const [validation, setValidation] = useState("");
   const [selectedOption, setSelectedOption] = useState();
+  console.log(formData?.userInfo?.selectedOption);
   const [isPresentCustode, setIsPresentCustode] = useState(false);
   const [isBaptized, setIsBaptized] = useState(false);
   const [acceptPolicy, setAcceptPolicy] = useState(false);

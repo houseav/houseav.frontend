@@ -57,7 +57,7 @@ export default function ProfileVerified() {
                 You will be logged out in {timeLeft} seconds...
               </span>
               <div
-                className="flex justify-start items-center space-x-2 m-5 text-base text-blue-600 hover:text-blue-400 ease-in-out hover:cursor-pointer"
+                className="flex justify-start md:justify-center items-center space-x-2 m-5 text-base text-blue-600 hover:text-blue-400 ease-in-out hover:cursor-pointer"
                 onClick={handlLogout}
               >
                 <FaSignOutAlt />
