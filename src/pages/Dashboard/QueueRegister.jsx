@@ -94,7 +94,11 @@ export default function QueueRegister() {
       const acceptableStatusCodes = [200, 201, 202];
       if (acceptableStatusCodes.includes(res.status)) {
         const data = await res.json();
-        return data;
+        if (data.status !== 404) {
+          return data;
+        } else {
+          setErrors(data);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -125,7 +129,7 @@ export default function QueueRegister() {
 
   return (
     <div className="p-3 w-full max-w-lg md:max-w-none mx-auto h-screen px-4 md:px-14">
-      {errors ? (
+      {errors && errors.status === 401 ? (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative animate-pulse text-center mt-24">
           <strong className="font-bold">{errors}!</strong>
         </div>
@@ -169,6 +173,10 @@ export default function QueueRegister() {
             {t("src.pages.dashboard.queueUsers.adminEditUserTitle")}
           </h1>
 
+          {errors && errors.status === 404 && (
+            <p className="text-center text-gray-400 mt-24">{errors.message}</p>
+          )}
+
           {/* Admin Church View */}
           {users.length > 0 && churchesViewAdmin.length > 0 && (
             <div>
@@ -199,6 +207,7 @@ export default function QueueRegister() {
                       <p className="text-sm text-gray-400 p-4">
                         Total users: {users.length}
                       </p>
+
                       <table className="min-w-full text-left text-sm font-light text-surface">
                         <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
                           <tr>
