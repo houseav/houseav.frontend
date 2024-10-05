@@ -67,6 +67,10 @@ export default function QueueRegister() {
       if (churchesView && churchesView.error == 401) {
         setErrors(churchesView.message);
         return;
+      } else if (!churchesView) {
+        // TODO understand how to standar handling different errors
+        setErrors({ message: "General Error", status: 500 });
+        return;
       }
       const usersRetrieved = await fetchUserToAccept(churchesView);
       if (!usersRetrieved) {
@@ -173,7 +177,7 @@ export default function QueueRegister() {
             {t("src.pages.dashboard.queueUsers.adminEditUserTitle")}
           </h1>
 
-          {errors && errors.status === 404 && (
+          {errors && (errors.status === 404 || errors.status === 500) && (
             <p className="text-center text-gray-400 mt-24">{errors.message}</p>
           )}
 
