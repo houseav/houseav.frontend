@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
+import defaultHousePhoto from "../assets/default-house-photo.png";
 
 import { Navigation } from "swiper/modules";
 import Spinner from "../components/Spinner.jsx";
@@ -117,7 +118,30 @@ export default function Listing() {
 
       {listing && !loading && !error && (
         <div>
-          <Swiper navigation>
+          {listing.imageUrls &&
+          listing.imageUrls.length > 0 &&
+          listing.imageUrls[0] !== "" ? (
+            <Swiper navigation>
+              {listing.imageUrls.map((url) => (
+                <SwiperSlide key={url}>
+                  <img
+                    src={url}
+                    alt="Listing Image"
+                    className="h-[550px] w-full object-cover"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <img
+              src={defaultHousePhoto}
+              alt="Default House"
+              className="h-[550px] w-full object-cover"
+            />
+          )}
+
+          {/** */}
+          {/* <Swiper navigation>
             {listing.imageUrls.map((url) => (
               <SwiperSlide key={url}>
                 <div
@@ -129,8 +153,8 @@ export default function Listing() {
                 ></div>
               </SwiperSlide>
             ))}
-          </Swiper>
-
+          </Swiper> */}
+          {/** */}
           {copied && (
             <p className="fixed top-[23%] right-[5%] z-10 rounded-md bg-slate-100 p-2">
               {t("src.pages.listingPage.linkCopied")}

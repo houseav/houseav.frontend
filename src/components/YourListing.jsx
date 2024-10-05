@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import React from "react";
 import { BASE_URL } from "../../utils/constants";
+import defaultHousePhoto from "../assets/default-house-photo.png";
 
 export default function YourListing({
   userListings,
@@ -55,7 +56,7 @@ export default function YourListing({
               >
                 <Link to={`/listing/${listing.id}`}>
                   <img
-                    src={listing.imageUrls.split(";")[0]}
+                    src={listing.imageUrls.split(";")[0] || defaultHousePhoto}
                     alt="listing cover"
                     className="rounded-full hover:scale-105 h-20 w-20 object-cover cursor-pointer self-center mt-2"
                   />
