@@ -3,6 +3,8 @@ import { FaUserShield } from "react-icons/fa";
 import { FaHouseCircleCheck } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 import React from "react";
+import AddUsersAsAdmin from "./AddUsersAsAdmin";
+
 
 export default function Dashboard() {
   const { t } = useTranslation();
@@ -23,6 +25,7 @@ export default function Dashboard() {
           </button>
         </Link>
       </div>
+      <AddUsersAsAdmin />
     </div>
   );
 }
