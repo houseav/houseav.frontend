@@ -1,6 +1,12 @@
-import React, { useEffect, useState } from "react";
-import SelectOptionsStatic from "../../components/SelectOptionsStatic";
+import React, { useEffect, useState, useRef } from "react";
 import { BASE_URL } from "../../../utils/constants";
+import { useTranslation } from "react-i18next";
+
+import ProfileModal from "../../components/Modal";
+import SelectOptionsStatic from "../../components/SelectOptionsStatic";
+import AdminChurchModal from "./AdminChurchModal";
+
+import { BsHousesFill } from "react-icons/bs";
 
 export default function AddUsersAsAdmin() {
   const rolesUser = [
@@ -8,9 +14,33 @@ export default function AddUsersAsAdmin() {
     { id: 2, name: "admin" },
     { id: 3, name: "super-admin" },
   ];
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
   const [errors, setErrors] = useState([]);
   const [selectedOption, setSelectedOption] = useState([]);
+  const [userRetrieved, setUserRetrieved] = useState([]);
+  const modal = useRef();
+  const modalReferralLetter = useRef();
+
+  const handleClickOpenModal = (user) => {
+    setUserRetrieved(user);
+    modal.current.open();
+  };
+
+  const handleCloseModal = () => {
+    modal.current.close();
+  };
+
+  var modalActions = () => (
+    <>
+      <button
+        className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+        onClick={handleCloseModal}
+      >
+        {t("src.pages.dashboard.queueUsers.modalCloseBtn")}
+      </button>
+    </>
+  );
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -38,6 +68,17 @@ export default function AddUsersAsAdmin() {
 
   return (
     <div className="flex justify-center p-10 m-5 md:m-20 h-screen">
+      {/* Profile Modal */}
+      <ProfileModal
+        ref={modal}
+        title="Church Admin Views"
+        iconHeader={
+          <BsHousesFill className="text-2xl pl-1 hover:scale-105 opacity-80" />
+        }
+        actions={modalActions("Update", "bg-orange-400")}
+        component={<AdminChurchModal user={userRetrieved} />}
+      />
+
       <div className="p-3 w-full max-w-6xl">
         {/* Limit max-width for larger screens */}
         <p className="text-2xl mb-4 text-center">Add users as admin</p>
@@ -92,8 +133,13 @@ export default function AddUsersAsAdmin() {
                         floatingLabelInputLabel="type_user"
                       />
                     </td>
-                    <td className="whitespace-nowrap px-6 py-4">
-                      Add Churches
+                    <td
+                      className="whitespace-nowrap px-6 py-4"
+                      onClick={() => handleClickOpenModal(user)}
+                    >
+                      <button className="text-blue-500 hover:scale-105 opacity-65 flex items-center gap-2 bg-white rounded-xl p-5 border border-cyan-400 shadow-lg">
+                        <BsHousesFill />
+                      </button>
                     </td>
                   </tr>
                 ))}

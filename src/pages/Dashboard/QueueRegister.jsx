@@ -6,8 +6,8 @@ import { FaUserEdit } from "react-icons/fa";
 import { SlEnvolopeLetter } from "react-icons/sl";
 import { IoMdMailUnread } from "react-icons/io";
 
-import AdminUpdateProfile from "./AdminUpdateProfile";
-import AdminViewReferralLetter from "./AdminViewReferralLetter";
+import AdminUpdateProfileModal from "./AdminUpdateProfileModal";
+import AdminViewReferralLetterModal from "./AdminViewReferralLetterModal";
 import ProfileModal from "../../components/Modal";
 import Badge from "../../components/Badge";
 import { BASE_URL } from "../../../utils/constants";
@@ -148,7 +148,7 @@ export default function QueueRegister() {
             }
             actions={modalActions("Update", "bg-orange-400")}
             component={
-              <AdminUpdateProfile
+              <AdminUpdateProfileModal
                 user={userToUpdateRetrivedOnClick}
                 setUser={setUserToUpdateRetrivedOnClick}
                 onCloseModal={handleCloseModal}
@@ -165,7 +165,7 @@ export default function QueueRegister() {
             }
             actions={modalActions(null, "bg-orange-400")}
             component={
-              <AdminViewReferralLetter
+              <AdminViewReferralLetterModal
                 referenceLetterViewUser={referenceLetterViewUser}
                 onCloseModal={handleCloseModal}
               />
