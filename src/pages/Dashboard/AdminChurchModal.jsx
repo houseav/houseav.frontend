@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SelectOptions from "../../components/SelectOptions";
 import { BsFillHouseAddFill } from "react-icons/bs";
 import { BASE_URL } from "../../../utils/constants";
 
-export default function AdminChurchModal({ user }) {
+export default function AdminChurchModal({ user, currentUser }) {
   const [selectedOption, setSelectedOption] = useState([]);
   const [churchesViewAdmin, setChurchesViewAdmin] = useState([]);
   const [errors, setErrors] = useState({});

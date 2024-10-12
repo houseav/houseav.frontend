@@ -8,7 +8,7 @@ import AdminChurchModal from "./AdminChurchModal";
 
 import { BsHousesFill } from "react-icons/bs";
 
-export default function AddUsersAsAdmin() {
+export default function AddUsersAsAdmin({ currentUser }) {
   const rolesUser = [
     { id: 1, name: "user" },
     { id: 2, name: "admin" },
@@ -76,7 +76,9 @@ export default function AddUsersAsAdmin() {
           <BsHousesFill className="text-2xl pl-1 hover:scale-105 opacity-80" />
         }
         actions={modalActions("Update", "bg-orange-400")}
-        component={<AdminChurchModal user={userRetrieved} />}
+        component={
+          <AdminChurchModal user={userRetrieved} currentUser={currentUser} />
+        }
       />
 
       <div className="p-3 w-full max-w-6xl">
