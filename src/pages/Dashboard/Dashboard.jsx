@@ -9,7 +9,7 @@ import AddUsersAsAdmin from "./AddUsersAsAdmin";
 export default function Dashboard() {
   const { t } = useTranslation();
   return (
-    <div className="p-3 max-w-lg mx-auto h-screen">
+    <div className="p-3 mx-auto h-screen">
       <h1 className="text-3xl font-semibold text-center my-7">Dashboard</h1>
       <div className="flex justify-center gap-4">
         <Link to="/queue-register">
