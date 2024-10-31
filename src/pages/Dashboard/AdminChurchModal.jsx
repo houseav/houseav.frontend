@@ -2,15 +2,36 @@ import React, { useState, useEffect } from "react";
 import SelectOptions from "../../components/SelectOptions";
 import { BsFillHouseAddFill } from "react-icons/bs";
 import { BASE_URL } from "../../../utils/constants";
+import { useSelector } from "react-redux";
+import BadgeOps from "../../components/BadgeOps";
 
 export default function AdminChurchModal({ user, currentUser }) {
   const [selectedOption, setSelectedOption] = useState([]);
   const [churchesViewAdmin, setChurchesViewAdmin] = useState([]);
+  const [churchViewAdminDelete, setChurchesViewAdminDelete] = useState({});
   const [errors, setErrors] = useState({});
+  // console.log('[MODAL] CurrentUser: ', currentUser);
+  // console.log('[MODAL] user , ',user);
+
 
   useEffect(() => {
+    console.log('[USEEFFECT] DELETE SOMEONE, ',churchViewAdminDelete);
+  }, [churchViewAdminDelete]);
+
+  useEffect(() => {
+    
     async function fetchData() {
-      const churchesView = await getChurchesViewAdmin(currentUser.user.id);
+      if(!currentUser){
+        console.log('Could not retrieve currentUser');
+        return;
+      }
+      if(!user || user.length == 0){
+        console.log('Could not retrieve user');
+        return;
+      }
+      console.log('[MODAL] useEffect')
+      console.log('[MODAL] user clicked, ',user);
+      const churchesView = await getChurchesViewAdmin(user.id);
       if (churchesView && churchesView.error == 401) {
         setErrors(churchesView.message);
         return;
@@ -26,7 +47,7 @@ export default function AdminChurchModal({ user, currentUser }) {
       setUsers(usersRetrieved);
     }
     fetchData();
-  }, []);
+  }, [user.id]);
 
   const fetchUserToAccept = async (churches) => {
     console.log("churches", churches);
@@ -59,7 +80,6 @@ export default function AdminChurchModal({ user, currentUser }) {
   const getChurchesViewAdmin = async (id) => {
     try {
       console.log("ID:::getChurchesViewAdmin", id);
-      console.log("currentuser", currentUser);
       const res = await fetch(`${BASE_URL}/user/admin-view-churches/${id}`, {
         method: "GET",
         headers: {
@@ -93,20 +113,21 @@ export default function AdminChurchModal({ user, currentUser }) {
         </button>
         <div className="border-t border-gray-300 my-6"></div>
         <p className="ml-10 text-lg font-bold">Actual Churches Views</p>
-        {/* <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 items-center">
           {churchesViewAdmin.length < 50 ? (
             churchesViewAdmin.map((church) => (
-              <Badge
-                message={church.name}
-                styleType="blue"
-                key={church.id}
-                className="w-1/5"
-              />
+                <BadgeOps
+                  styleType="blue"
+                  key={church.id}
+                  setObject={setChurchesViewAdminDelete}
+                  object={church}
+                  className="w-1/5"
+                />
             ))
           ) : (
-            <Badge message="All Churches" styleType="red" className="w-1/5" />
+            <BadgeOps styleType="red" className="w-1/5" id="ALL" object={{ name: 'all churches' }} setObject={setChurchesViewAdminDelete} />
           )}
-        </div> */}
+        </div>
       </div>
     </div>
   );

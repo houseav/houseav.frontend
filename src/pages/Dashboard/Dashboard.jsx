@@ -20,7 +20,8 @@ export default function Dashboard() {
       <h1 className="text-3xl font-semibold text-center my-7">Dashboard</h1>
       <div className="flex justify-center gap-4 m-14">
         <div className="text-blue-700 text-xl opacity-65 flex items-center gap-2 bg-white rounded-xl p-7 border border-cyan-400">
-          <PiUsersThreeFill /> <p className="font-bold">325</p> Users
+          <PiUsersThreeFill /> <p className="font-bold">325</p> Users (todo
+          dotsspinner)
         </div>
         <div className="text-blue-700 text-xl opacity-65 flex items-center gap-2 bg-white rounded-xl p-7 border border-cyan-400">
           <PiHouseSimpleFill /> <p className="font-bold">73</p> Houses
@@ -47,7 +48,7 @@ export default function Dashboard() {
           </button>
         </Link>
       </div>
-      <AddUsersAsAdmin />
+      <AddUsersAsAdmin currentUser={currentUser} />
     </div>
   );
 }

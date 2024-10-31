@@ -24,6 +24,7 @@ export default function AddUsersAsAdmin({ currentUser }) {
 
   const handleClickOpenModal = (user) => {
     setUserRetrieved(user);
+    console.log('[DASHBOARD] user clicked, ',user);
     modal.current.open();
   };
 
@@ -77,7 +78,7 @@ export default function AddUsersAsAdmin({ currentUser }) {
         }
         actions={modalActions("Update", "bg-orange-400")}
         component={
-          <AdminChurchModal user={userRetrieved} currentUser={currentUser} />
+          <AdminChurchModal key={userRetrieved.id} user={userRetrieved} currentUser={currentUser} />
         }
       />
 
