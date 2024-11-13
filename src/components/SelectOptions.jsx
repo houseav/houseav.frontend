@@ -27,7 +27,6 @@ export default function SelectOptions({ uri, onSelectedOption, type, error }) {
         console.error("Error while retrieving select options data:", error);
       }
     };
-
     fetchData();
   }, [uri]);
 

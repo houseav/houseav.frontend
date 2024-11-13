@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SelectOptions from "../../components/SelectOptions";
 import { BsFillHouseAddFill } from "react-icons/bs";
 import { BASE_URL } from "../../../utils/constants";
@@ -6,20 +6,104 @@ import { useSelector } from "react-redux";
 import BadgeOps from "../../components/BadgeOps";
 
 export default function AdminChurchModal({ user, currentUser }) {
-  const [selectedOption, setSelectedOption] = useState([]);
+  const [selectedOption, setSelectedOption] = useState();
   const [churchesViewAdmin, setChurchesViewAdmin] = useState([]);
   const [churchViewAdminDelete, setChurchesViewAdminDelete] = useState({});
   const [errors, setErrors] = useState({});
-  // console.log('[MODAL] CurrentUser: ', currentUser);
-  // console.log('[MODAL] user , ',user);
+  const [errorLabels, setErrorLabels] = useState({});
+  const prevDeletedChurchRef = useRef(null);
+ 
+  //Flush errors
+  useEffect(() => {
+    if(selectedOption){
+      setErrorLabels((prev) => ({
+        ...prev,
+        addAdminError: null,
+      }));
+    }
+  }, [selectedOption])
 
+
+  const handleAddChurchViewAdmin = (church) => {
+    async function addData(){
+      if(!selectedOption){
+        setErrorLabels({ ...errorLabels, addAdminError: 'You need to select a church first'})
+        return;
+      }       
+      try {
+        const res = await fetch(
+          `${BASE_URL}/user/admin-viewer-from-user/${selectedOption.id}/${user.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${currentUser.access_token}`,
+            },
+          }
+        );
+        const acceptableStatusCodes = [200, 201, 202];
+        if (acceptableStatusCodes.includes(res.status)) {
+          const data = await res.json();
+          if(data.status == 403){
+            setErrorLabels((prev) => ({
+              ...prev,
+              duplicateChurchToAdd: data.message,
+            }));
+            return;
+          }
+          if (data.status !== 404) {
+            setErrorLabels((prev) => ({
+              ...prev,
+              duplicateChurchToAdd: null,
+            }));
+            await getChurchesViewAdmin(user.id);
+          } else {
+            setErrors(data);
+          }
+        }
+      } catch (error) {
+        console.log('Error while adding admin-viewer-from-user, ', error);
+      }
+    }
+    addData()
+  }
 
   useEffect(() => {
-    console.log('[USEEFFECT] DELETE SOMEONE, ',churchViewAdminDelete);
+    if (!churchViewAdminDelete || Object.keys(churchViewAdminDelete).length === 0) return;
+    if (prevDeletedChurchRef.current && prevDeletedChurchRef.current === churchViewAdminDelete) {
+    return;
+  } else {
+      prevDeletedChurchRef.current = churchViewAdminDelete;
+      async function fetchData() {
+        try {
+          const res = await fetch(
+            `${BASE_URL}/user/admin-viewer-from-user/${churchViewAdminDelete.id}/${user.id}`,
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${currentUser.access_token}`,
+              },
+            }
+          );
+          const acceptableStatusCodes = [200, 201, 202];
+          if (acceptableStatusCodes.includes(res.status)) {
+            const data = await res.json();
+            if (data.status !== 404) {
+              await getChurchesViewAdmin(user.id);
+            } else {
+              setErrors(data);
+            }
+          }
+        } catch (error) {
+          console.log('Error while deleting admin-viewer-from-user, ',error);
+        }
+      }  
+      fetchData();
+    }  
   }, [churchViewAdminDelete]);
 
   useEffect(() => {
-    
     async function fetchData() {
       if(!currentUser){
         console.log('Could not retrieve currentUser');
@@ -29,14 +113,11 @@ export default function AdminChurchModal({ user, currentUser }) {
         console.log('Could not retrieve user');
         return;
       }
-      console.log('[MODAL] useEffect')
-      console.log('[MODAL] user clicked, ',user);
       const churchesView = await getChurchesViewAdmin(user.id);
       if (churchesView && churchesView.error == 401) {
         setErrors(churchesView.message);
         return;
       } else if (!churchesView) {
-        // TODO understand how to standar handling different errors
         setErrors({ message: "General Error", status: 500 });
         return;
       }
@@ -79,7 +160,6 @@ export default function AdminChurchModal({ user, currentUser }) {
 
   const getChurchesViewAdmin = async (id) => {
     try {
-      console.log("ID:::getChurchesViewAdmin", id);
       const res = await fetch(`${BASE_URL}/user/admin-view-churches/${id}`, {
         method: "GET",
         headers: {
@@ -100,22 +180,26 @@ export default function AdminChurchModal({ user, currentUser }) {
 
   return (
     <div className="p-3">
-      <div className=" space-y-4">
-        <p className="ml-10">Select church to add: </p>
-        <SelectOptions
-          type="churches"
-          uri="/church"
-          onSelectedOption={setSelectedOption}
-          error={errors.selectedOption}
-        />
-        <button className="ml-10 mt-4 text-blue-500 hover:scale-105 opacity-65 flex items-center gap-2 bg-white rounded-xl p-5 border border-cyan-400 shadow-lg">
-          <BsFillHouseAddFill />
-        </button>
-        <div className="border-t border-gray-300 my-6"></div>
-        <p className="ml-10 text-lg font-bold">Actual Churches Views</p>
-        <div className="flex flex-wrap gap-2 items-center">
-          {churchesViewAdmin.length < 50 ? (
-            churchesViewAdmin.map((church) => (
+      <div className="space-y-4">
+        {churchesViewAdmin.length < 50 ? (
+          <>
+            <p className="ml-10">Select church to add: </p>
+            {errorLabels?.addAdminError && (<p className="text-red-600 font-semibold text-sm ml-10">{errorLabels.addAdminError}</p>)}
+            {errorLabels?.duplicateChurchToAdd && (<p className="text-red-600 font-semibold text-sm ml-10">{errorLabels.duplicateChurchToAdd}</p>)}            
+            <SelectOptions
+              type="churches"
+              uri="/church"
+              onSelectedOption={setSelectedOption}
+              error={errors.selectedOption}
+            />
+            <button className="ml-10 mt-4 text-blue-500 hover:scale-105 opacity-65 flex items-center gap-2 bg-white rounded-xl p-5 border border-cyan-400 shadow-lg" onClick={handleAddChurchViewAdmin}>
+              <BsFillHouseAddFill />
+            </button>
+            <div className="border-t border-gray-300 my-6"></div>
+            <div className="flex flex-col gap-2 items-start ml-10">
+            <p className="text-lg font-bold">Actual Churches Views</p>
+            <div className="flex flex-wrap gap-2 items-center">
+              {churchesViewAdmin.map((church) => (
                 <BadgeOps
                   styleType="blue"
                   key={church.id}
@@ -123,12 +207,24 @@ export default function AdminChurchModal({ user, currentUser }) {
                   object={church}
                   className="w-1/5"
                 />
-            ))
-          ) : (
-            <BadgeOps styleType="red" className="w-1/5" id="ALL" object={{ name: 'all churches' }} setObject={setChurchesViewAdminDelete} />
-          )}
-        </div>
+              ))}
+            </div>
+          </div>
+          </>
+        ) : (
+          <div className="flex flex-col gap-y-4 items-start ml-10 ">
+            <p className="text-lg font-bold">You see all churches</p>
+            <BadgeOps
+              styleType="red"
+              className="w-1/5"
+              id="ALL"
+              object={{ name: 'all churches' }}
+              setObject={setChurchesViewAdminDelete}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
+  
 }
