@@ -26,13 +26,14 @@ export default function AdminChurchModal({ user, currentUser }) {
 
   const handleAddChurchViewAdmin = (church) => {
     async function addData(){
-      if(!selectedOption){
+      if(!selectedOption & church != 'ALL'){
         setErrorLabels({ ...errorLabels, addAdminError: 'You need to select a church first'})
         return;
       }       
       try {
+        const idChurch = church == 'ALL' ? 0 : selectedOption.id;
         const res = await fetch(
-          `${BASE_URL}/user/admin-viewer-from-user/${selectedOption.id}/${user.id}`,
+          `${BASE_URL}/user/admin-viewer-from-user/${idChurch}/${user.id}`,
           {
             method: "PATCH",
             headers: {
@@ -197,15 +198,21 @@ export default function AdminChurchModal({ user, currentUser }) {
               onSelectedOption={setSelectedOption}
               error={errors.selectedOption}
             />
+            <div className="flex">
             <button className="ml-10 mt-4 text-blue-500 hover:scale-105 opacity-65 flex items-center gap-2 bg-white rounded-xl p-5 border border-cyan-400 shadow-lg" onClick={handleAddChurchViewAdmin}>
               <BsFillHouseAddFill />
             </button>
+            <button className="ml-10 mt-4 text-blue-500 hover:scale-105 opacity-65 flex items-center gap-2 bg-white rounded-xl p-5 border border-cyan-400 shadow-lg" onClick={() => handleAddChurchViewAdmin('ALL')}>
+             ALL
+              <BsFillHouseAddFill />
+            </button>
+            </div>
             <div className="border-t border-gray-300 my-6"></div>
             <div className="flex flex-col gap-2 items-start ml-10">
             <p className="text-lg font-bold">Actual Churches Views</p>
             <div className="flex flex-wrap gap-2 items-center">
             {churchesViewAdmin.length == 0 ? (
-              <p className="text-base">No churches for this user yet..</p>
+              <p className="text-base text-gray-600">No churches for this user yet..</p>
             ) : (
               churchesViewAdmin.map((church) => (
                 <BadgeOps
