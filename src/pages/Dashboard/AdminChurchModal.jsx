@@ -74,10 +74,11 @@ export default function AdminChurchModal({ user, currentUser }) {
     return;
   } else {
       prevDeletedChurchRef.current = churchViewAdminDelete;
+      const churchId = churchViewAdminDelete.id ?? 0;
       async function fetchData() {
         try {
           const res = await fetch(
-            `${BASE_URL}/user/admin-viewer-from-user/${churchViewAdminDelete.id}/${user.id}`,
+            `${BASE_URL}/user/admin-viewer-from-user/${churchId}/${user.id}`,
             {
               method: "DELETE",
               headers: {
@@ -170,7 +171,11 @@ export default function AdminChurchModal({ user, currentUser }) {
       const acceptableStatusCodes = [200, 201, 202];
       if (acceptableStatusCodes.includes(res.status)) {
         const data = await res.json();
-        setChurchesViewAdmin(data);
+        if(data.status !== 404){
+          setChurchesViewAdmin(data);
+        } else {
+          setChurchesViewAdmin([]);
+        }
         return data;
       }
     } catch (error) {
@@ -199,7 +204,10 @@ export default function AdminChurchModal({ user, currentUser }) {
             <div className="flex flex-col gap-2 items-start ml-10">
             <p className="text-lg font-bold">Actual Churches Views</p>
             <div className="flex flex-wrap gap-2 items-center">
-              {churchesViewAdmin.map((church) => (
+            {churchesViewAdmin.length == 0 ? (
+              <p className="text-base">No churches for this user yet..</p>
+            ) : (
+              churchesViewAdmin.map((church) => (
                 <BadgeOps
                   styleType="blue"
                   key={church.id}
@@ -207,7 +215,8 @@ export default function AdminChurchModal({ user, currentUser }) {
                   object={church}
                   className="w-1/5"
                 />
-              ))}
+              ))
+            )}
             </div>
           </div>
           </>
