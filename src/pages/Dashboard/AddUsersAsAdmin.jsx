@@ -6,6 +6,7 @@ import ProfileModal from "../../components/Modal";
 import SelectOptionsStatic from "../../components/SelectOptionsStatic";
 import AdminChurchModal from "./AdminChurchModal";
 
+import { MdBlock } from "react-icons/md";
 import { BsHousesFill } from "react-icons/bs";
 
 export default function AddUsersAsAdmin({ currentUser }) {
@@ -48,7 +49,7 @@ export default function AddUsersAsAdmin({ currentUser }) {
       try {
         const id = 6;
         const res = await fetch(
-          `${BASE_URL}/user/get-users-admin-viewers/${id}`
+          `${BASE_URL}/user/get-users-admin-viewers`
         );
         const acceptableStatusCodes = [200, 201, 202];
         if (!acceptableStatusCodes.includes(res.status)) {
@@ -136,6 +137,8 @@ export default function AddUsersAsAdmin({ currentUser }) {
                         floatingLabelInputLabel="type_user"
                       />
                     </td>
+                  {
+                  (user.fkRoleId?.id === 1 || user.fkRoleId?.id === 4) ? (
                     <td
                       className="whitespace-nowrap px-6 py-4"
                       onClick={() => handleClickOpenModal(user)}
@@ -143,7 +146,14 @@ export default function AddUsersAsAdmin({ currentUser }) {
                       <button className="text-blue-500 hover:scale-105 opacity-65 flex items-center gap-2 bg-white rounded-xl p-5 border border-cyan-400 shadow-lg">
                         <BsHousesFill />
                       </button>
+                    </td>                        
+                  ) : (
+                    <td className="flex whitespace-nowrap text-center px-6 py-6 ml-4">
+                      <MdBlock className="text-2xl text-gray-500"/>
                     </td>
+                  )
+                }
+
                   </tr>
                 ))}
             </tbody>
