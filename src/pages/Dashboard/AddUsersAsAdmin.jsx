@@ -8,6 +8,9 @@ import AdminChurchModal from "./AdminChurchModal";
 
 import { MdBlock } from "react-icons/md";
 import { BsHousesFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { handleUnauthLogic } from "../Profile/handleUnauth";
 
 export default function AddUsersAsAdmin({ currentUser }) {
   const rolesUser = [
@@ -16,6 +19,8 @@ export default function AddUsersAsAdmin({ currentUser }) {
     { id: 3, name: "super-admin" },
   ];
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [errors, setErrors] = useState([]);
   const [selectedOption, setSelectedOption] = useState([]);
@@ -52,8 +57,15 @@ export default function AddUsersAsAdmin({ currentUser }) {
           `${BASE_URL}/user/get-users-admin-viewers`
         );
         const acceptableStatusCodes = [200, 201, 202];
+        if(res.status == 401){
+          const resHandlingUnauth = await handleUnauthLogic(dispatch, currentUser);
+          if(!resHandlingUnauth){
+            localStorage.clear();
+            window.location.reload();
+          }
+        }
         if (!acceptableStatusCodes.includes(res.status)) {
-          setError(true);
+          setErrors(true);
           setLoading(false);
           return;
         }
