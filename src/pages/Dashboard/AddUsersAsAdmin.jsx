@@ -62,6 +62,8 @@ export default function AddUsersAsAdmin({ currentUser }) {
           if(!resHandlingUnauth){
             localStorage.clear();
             window.location.reload();
+          } else {
+            window.location.reload();
           }
         }
         if (!acceptableStatusCodes.includes(res.status)) {
@@ -71,7 +73,6 @@ export default function AddUsersAsAdmin({ currentUser }) {
         }
         const data = await res.json();
         setUsers(data);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }

@@ -45,7 +45,7 @@ function FloatingLabelInput({
 FloatingLabelInput.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string,
   type: PropTypes.string,
