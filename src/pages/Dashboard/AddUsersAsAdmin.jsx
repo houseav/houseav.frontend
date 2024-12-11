@@ -23,6 +23,7 @@ export default function AddUsersAsAdmin({ currentUser }) {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState();
   const [selectedOption, setSelectedOption] = useState([]);
   const [userRetrieved, setUserRetrieved] = useState([]);
   const modal = useRef();
@@ -51,6 +52,7 @@ export default function AddUsersAsAdmin({ currentUser }) {
 
   useEffect(() => {
     const fetchUsers = async () => {
+      setLoading(true);
       try {
         const id = 6;
         const res = await fetch(
@@ -61,9 +63,9 @@ export default function AddUsersAsAdmin({ currentUser }) {
           const resHandlingUnauth = await handleUnauthLogic(dispatch, currentUser);
           if(!resHandlingUnauth){
             localStorage.clear();
-            window.location.reload();
+            // window.location.reload();
           } else {
-            window.location.reload();
+            // window.location.reload();
           }
         }
         if (!acceptableStatusCodes.includes(res.status)) {
@@ -169,6 +171,7 @@ export default function AddUsersAsAdmin({ currentUser }) {
 
                   </tr>
                 ))}
+                {loading && <p>Loading..</p>}
             </tbody>
           </table>
         </div>

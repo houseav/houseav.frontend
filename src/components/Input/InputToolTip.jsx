@@ -72,7 +72,7 @@ export default function InputToolTip({
 InputToolTip.propTypes = {
   id: PropTypes.string.isRequired,
   toolTipMessage: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   type: PropTypes.string,
   nameobject: PropTypes.string,
   error: PropTypes.string,

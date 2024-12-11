@@ -15,7 +15,11 @@ export default function SelectOptions({ uri, onSelectedOption, type, error }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${BASE_URL}${uri}`);
+        const res = await fetch(`${BASE_URL}${uri}`,{
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const acceptableStatusCodes = [200, 201, 202];
         if (!acceptableStatusCodes.includes(res.status)) {
           console.error("Error while deleting this house");
