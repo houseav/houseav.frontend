@@ -237,12 +237,6 @@ export default function Profile() {
               onChange={handleChangeInput}
               error={errors.email}
             />
-            {/* <FloatingLabelInput
-            id="password"
-            label="password"
-            type="password"
-            onChange={handleChangeInput}
-          /> */}
 
             <div className="flex gap-2">
               <Link to={"/forgot-password-request"}>

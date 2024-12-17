@@ -70,7 +70,6 @@ ProfileModal.propTypes = {
   title: PropTypes.string.isRequired,
   descriptions: PropTypes.string,
   actions: PropTypes.node.isRequired,
-  component: PropTypes.node.isRequired,
   iconHeader: PropTypes.node,
 };
 

@@ -56,27 +56,39 @@ export default function AddUsersAsAdmin({ currentUser }) {
       try {
         const id = 6;
         const res = await fetch(
-          `${BASE_URL}/user/get-users-admin-viewers`
+          `${BASE_URL}/user/get-users-admin-viewers`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${currentUser.access_token}`,
+            },      
+          }
         );
+
         const acceptableStatusCodes = [200, 201, 202];
         if(res.status == 401){
           const resHandlingUnauth = await handleUnauthLogic(dispatch, currentUser);
           if(!resHandlingUnauth){
             localStorage.clear();
-            // window.location.reload();
+            navigate("/");
+            return;
           } else {
-            // window.location.reload();
+            navigate("/dashboard");    
+            window.location.reload();
+            setLoading(false);
+            return;        
           }
         }
         if (!acceptableStatusCodes.includes(res.status)) {
           setErrors(true);
-          setLoading(false);
           return;
         }
         const data = await res.json();
         setUsers(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
 
