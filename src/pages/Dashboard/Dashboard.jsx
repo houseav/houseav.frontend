@@ -10,7 +10,6 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import React from "react";
 import AddUsersAsAdmin from "./AddUsersAsAdmin";
-import { BrowserRouter } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 export default function Dashboard() {

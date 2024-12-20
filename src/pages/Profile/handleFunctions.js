@@ -48,14 +48,13 @@ export const handleFileUploadLogic = async (
 };
 
 export const handleShowListingsLogic = async (
-  id,
   setShowListingsError,
   setUserListings,
   currentUser
 ) => {
   try {
     setShowListingsError(false);
-    const res = await fetch(`${BASE_URL}/house/user/${id}`, {
+    const res = await fetch(`${BASE_URL}/house/user`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${currentUser.access_token}`,

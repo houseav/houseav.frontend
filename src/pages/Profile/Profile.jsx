@@ -171,7 +171,6 @@ export default function Profile() {
   const handleShowListings = async (event) => {
     event.preventDefault();
     await handleShowListingsLogic(
-      currentUser.user.id,
       setShowListingsError,
       setUserListings,
       currentUser
